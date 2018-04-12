@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="mdtModels::TransitionKey">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAIAAAAAAAAAAAAAAIAAAABAAAAAA=</HashCode>
+      <FileName>TransitionKey.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="mdtModels::TransitionValue">
+    <Position X="4" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAgACAAAAAAAAAAAAAAAAAACAAAACAAAA=</HashCode>
+      <FileName>TransitionValue.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="mdtModels::TuringMachine">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAQAgABAABQAAAEAAEAAAEAAAAAAg=</HashCode>
+      <FileName>TuringMachine.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="mdtModels::Movement">
+    <Position X="0.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQAAQA=</HashCode>
+      <FileName>TransitionValue.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
