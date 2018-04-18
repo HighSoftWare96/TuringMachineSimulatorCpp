@@ -12,10 +12,11 @@ namespace mdtModels {
 	{
 	public:
 		int nextState;
-		int nextSymbol;
+		char nextSymbol;
 		Movement nextMove;
 
 		TransitionValue();
+		TransitionValue(int nextState, char nextSymbol, Movement nextMove);
 		~TransitionValue();
 	};
 }

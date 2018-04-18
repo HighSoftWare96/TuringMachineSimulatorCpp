@@ -29,6 +29,8 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
+    <CLRSupport>false</CLRSupport>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -42,6 +44,8 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
+    <CLRSupport>false</CLRSupport>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -120,15 +124,15 @@
     <ClCompile Include="TransitionKey.cpp" />
     <ClCompile Include="TransitionValue.cpp" />
     <ClCompile Include="TuringMachine.cpp" />
+    <ClCompile Include="TuringMachineState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GpUtils.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="TransitionKey.h" />
     <ClInclude Include="TransitionValue.h" />
     <ClInclude Include="TuringMachine.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
+    <ClInclude Include="TuringMachineState.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

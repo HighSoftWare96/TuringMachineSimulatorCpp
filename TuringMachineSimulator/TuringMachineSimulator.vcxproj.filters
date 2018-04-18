@@ -30,6 +30,9 @@
     <ClCompile Include="GpUtils.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
+    <ClCompile Include="TuringMachineState.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TuringMachine.h">
@@ -44,8 +47,11 @@
     <ClInclude Include="GpUtils.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
+    <ClInclude Include="main.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="TuringMachineState.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
