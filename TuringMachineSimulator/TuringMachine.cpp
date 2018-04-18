@@ -21,8 +21,10 @@ TuringMachine::~TuringMachine()
 
 /// Permette di inserire un nuovo elemento all'interno della macchina di turing. 
 bool TuringMachine::addNewState(int stateToInsert) {
+	/// Se lo stato non esiste restituisce false, altrimenti true.
 	if (arrayContains(states, stateToInsert))
 		return false;
+	/// Solo stati positivi.
 	if (stateToInsert >= 0)
 		states.push_back(stateToInsert);
 	return true;
@@ -30,12 +32,14 @@ bool TuringMachine::addNewState(int stateToInsert) {
 
 bool TuringMachine::setInitialState(string rawString) {
 	int initialStateToInsert;
+	/// Parserizzo e controllo la stringa in input.
 	try {
 		initialStateToInsert = checkInput(rawString, 0, 100);
 	}
 	catch (...) {
 		return false;
 	}
+	/// Controllo la validità dello stato (deve esistere).
 	if (initialStateToInsert < 0 || !arrayContains(states, initialStateToInsert))
 		return false;
 	else
@@ -44,6 +48,7 @@ bool TuringMachine::setInitialState(string rawString) {
 }
 
 bool TuringMachine::setFinalState(string rawString) {
+	/// Come funzione precedente.
 	int finalStateToInsert;
 	try {
 		finalStateToInsert = checkInput(rawString, 0, 100);
@@ -76,10 +81,14 @@ string mdtModels::TuringMachine::printStates()
 
 bool mdtModels::TuringMachine::insertTransition(int state, char symbol, int nextState, char nextSymbol, Movement nextMove)
 {
-	if (!arrayContains(states, state) || !arrayContains(states, state))
+	/// Controllo la validità degli stati inseriti nella transizione.
+	if (!arrayContains(states, state) || !arrayContains(nextState, state))
 		return false;
+	/// Creo una chiave della mappa.
 	TransitionKey key = TransitionKey(state, symbol);
+	/// Creo il valore della mappa.
 	TransitionValue value = TransitionValue(nextState, nextSymbol, nextMove);
+	/// Inserisco (con eventuale sovrascrittura).
 	transitions[key] = value;
 	return true;
 }
