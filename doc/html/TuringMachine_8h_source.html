@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>Turing machine simulator:  File sorgente include/TuringMachine.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Turing machine simulator
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generato da Doxygen 1.8.11 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Pagina&#160;Principale</span></a></li>
+      <li><a href="namespaces.html"><span>Namespace</span></a></li>
+      <li><a href="annotated.html"><span>Classi</span></a></li>
+      <li class="current"><a href="files.html"><span>File</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Cerca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Elenco&#160;dei&#160;file</span></a></li>
+      <li><a href="globals.html"><span>Elementi&#160;dei&#160;file</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">TuringMachine.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="TuringMachine_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef TURING_MACHINE</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define TURING_MACHINE</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="TransitionKey_8h.html">TransitionKey.h</a>&quot;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="TransitionValue_8h.html">TransitionValue.h</a>&quot;</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacemdtModels.html">mdtModels</a> {</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classmdtModels_1_1TuringMachine.html">   19</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classmdtModels_1_1TuringMachine.html">TuringMachine</a></div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    {</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">private</span>:</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        std::vector&lt;int&gt; states;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">int</span> initialState;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">int</span> finalState;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        std::map&lt;TransitionKey, TransitionValue&gt; transitions;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="classmdtModels_1_1TuringMachine.html#aaadc700a58793d77a1121de6cc070c74">TuringMachine</a>();</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <a class="code" href="classmdtModels_1_1TuringMachine.html#a5279d180cd87e664447c6b40e0ce55e2">~TuringMachine</a>();</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classmdtModels_1_1TuringMachine.html#affc4e3a7373c57925d866d6c54598782">addNewState</a>(<span class="keywordtype">int</span> stateToInsert);</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classmdtModels_1_1TuringMachine.html#a8f5fc1bc8f2f0f305af385aab0536df6">setInitialState</a>(std::string initialStateToInsert);</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classmdtModels_1_1TuringMachine.html#aec33684941de3285eed17c93a3c616f0">setFinalState</a>(std::string finalStateToInsert);</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        std::vector&lt;int&gt; <a class="code" href="classmdtModels_1_1TuringMachine.html#ab3935106fe35db3d6823484d14f368fb">getStates</a>();</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        std::string <a class="code" href="classmdtModels_1_1TuringMachine.html#a86e79d6c0b64422dd4401a590e4d2edf">printStates</a>();</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classmdtModels_1_1TuringMachine.html#ab0107a9da37eb4d9bc5f1724219f5308">insertTransition</a>(<span class="keywordtype">int</span> state, <span class="keywordtype">char</span> symbol, <span class="keywordtype">int</span> nextState, <span class="keywordtype">char</span> nextSymbol, <a class="code" href="namespacemdtModels.html#aeb9a93f81fb81a36f75f33ad5551a0d3">Movement</a> nextMove);</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classmdtModels_1_1TuringMachine.html#a70c1baad0963a9b1738b7c57758776ed">checkStatusPresent</a>(<span class="keywordtype">int</span> state);</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        std::string <a class="code" href="classmdtModels_1_1TuringMachine.html#abf3a6d323970d14d88c43d3671568e85">printTransitions</a>();</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classmdtModels_1_1TuringMachine.html#afdf87c55d41c639e15cc9144503f2b82">getInitialState</a>();</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classmdtModels_1_1TuringMachine.html#a0b0f0d3590e84b83cb73e6a20d54d84a">getFinalState</a>();</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        std::map&lt;TransitionKey, TransitionValue&gt; *<a class="code" href="classmdtModels_1_1TuringMachine.html#a7bb56743392f62d9b391a9c88d6aca9a">getTransitions</a>();</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    };</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="namespacemdtModels_html_aeb9a93f81fb81a36f75f33ad5551a0d3"><div class="ttname"><a href="namespacemdtModels.html#aeb9a93f81fb81a36f75f33ad5551a0d3">mdtModels::Movement</a></div><div class="ttdeci">Movement</div><div class="ttdoc">Enum per i movimenti della testina della MdT. </div><div class="ttdef"><b>Definition:</b> TransitionValue.h:9</div></div>
+<div class="ttc" id="classmdtModels_1_1TuringMachine_html_ab0107a9da37eb4d9bc5f1724219f5308"><div class="ttname"><a href="classmdtModels_1_1TuringMachine.html#ab0107a9da37eb4d9bc5f1724219f5308">mdtModels::TuringMachine::insertTransition</a></div><div class="ttdeci">bool insertTransition(int state, char symbol, int nextState, char nextSymbol, Movement nextMove)</div><div class="ttdoc">Inserisce una transizione ricevuti tutti gli argomenti necessari. </div><div class="ttdef"><b>Definition:</b> TuringMachine.cpp:83</div></div>
+<div class="ttc" id="classmdtModels_1_1TuringMachine_html_abf3a6d323970d14d88c43d3671568e85"><div class="ttname"><a href="classmdtModels_1_1TuringMachine.html#abf3a6d323970d14d88c43d3671568e85">mdtModels::TuringMachine::printTransitions</a></div><div class="ttdeci">std::string printTransitions()</div><div class="ttdoc">Restituisce una rappresentazione a stringa delle transizioni della mdt. </div><div class="ttdef"><b>Definition:</b> TuringMachine.cpp:102</div></div>
+<div class="ttc" id="classmdtModels_1_1TuringMachine_html"><div class="ttname"><a href="classmdtModels_1_1TuringMachine.html">mdtModels::TuringMachine</a></div><div class="ttdoc">Classe per la rappresentazione di una macchina di Turing. </div><div class="ttdef"><b>Definition:</b> TuringMachine.h:19</div></div>
+<div class="ttc" id="TransitionValue_8h_html"><div class="ttname"><a href="TransitionValue_8h.html">TransitionValue.h</a></div></div>
+<div class="ttc" id="classmdtModels_1_1TuringMachine_html_afdf87c55d41c639e15cc9144503f2b82"><div class="ttname"><a href="classmdtModels_1_1TuringMachine.html#afdf87c55d41c639e15cc9144503f2b82">mdtModels::TuringMachine::getInitialState</a></div><div class="ttdeci">int getInitialState()</div><div class="ttdoc">Restituisce lo stato iniziale. </div><div class="ttdef"><b>Definition:</b> TuringMachine.cpp:121</div></div>
+<div class="ttc" id="namespacemdtModels_html"><div class="ttname"><a href="namespacemdtModels.html">mdtModels</a></div><div class="ttdoc">Namespace per le classi di rappresentazione delle MdT. </div><div class="ttdef"><b>Definition:</b> TransitionKey.h:3</div></div>
+<div class="ttc" id="classmdtModels_1_1TuringMachine_html_a0b0f0d3590e84b83cb73e6a20d54d84a"><div class="ttname"><a href="classmdtModels_1_1TuringMachine.html#a0b0f0d3590e84b83cb73e6a20d54d84a">mdtModels::TuringMachine::getFinalState</a></div><div class="ttdeci">int getFinalState()</div><div class="ttdoc">Restituisce lo stato finale. </div><div class="ttdef"><b>Definition:</b> TuringMachine.cpp:126</div></div>
+<div class="ttc" id="classmdtModels_1_1TuringMachine_html_a86e79d6c0b64422dd4401a590e4d2edf"><div class="ttname"><a href="classmdtModels_1_1TuringMachine.html#a86e79d6c0b64422dd4401a590e4d2edf">mdtModels::TuringMachine::printStates</a></div><div class="ttdeci">std::string printStates()</div><div class="ttdoc">Restituisce una rappresentazione a stringa degli stati della mdt. </div><div class="ttdef"><b>Definition:</b> TuringMachine.cpp:72</div></div>
+<div class="ttc" id="TransitionKey_8h_html"><div class="ttname"><a href="TransitionKey_8h.html">TransitionKey.h</a></div></div>
+<div class="ttc" id="classmdtModels_1_1TuringMachine_html_a8f5fc1bc8f2f0f305af385aab0536df6"><div class="ttname"><a href="classmdtModels_1_1TuringMachine.html#a8f5fc1bc8f2f0f305af385aab0536df6">mdtModels::TuringMachine::setInitialState</a></div><div class="ttdeci">bool setInitialState(std::string initialStateToInsert)</div><div class="ttdoc">Permette di impostare lo stato iniziale della mdt valutandolo da una stringa. </div><div class="ttdef"><b>Definition:</b> TuringMachine.cpp:34</div></div>
+<div class="ttc" id="classmdtModels_1_1TuringMachine_html_aaadc700a58793d77a1121de6cc070c74"><div class="ttname"><a href="classmdtModels_1_1TuringMachine.html#aaadc700a58793d77a1121de6cc070c74">mdtModels::TuringMachine::TuringMachine</a></div><div class="ttdeci">TuringMachine()</div><div class="ttdoc">Costruttore vuoto. </div><div class="ttdef"><b>Definition:</b> TuringMachine.cpp:14</div></div>
+<div class="ttc" id="classmdtModels_1_1TuringMachine_html_ab3935106fe35db3d6823484d14f368fb"><div class="ttname"><a href="classmdtModels_1_1TuringMachine.html#ab3935106fe35db3d6823484d14f368fb">mdtModels::TuringMachine::getStates</a></div><div class="ttdeci">std::vector&lt; int &gt; getStates()</div><div class="ttdoc">Restituisce il vettore contenente gli stati della mdt. </div><div class="ttdef"><b>Definition:</b> TuringMachine.cpp:67</div></div>
+<div class="ttc" id="classmdtModels_1_1TuringMachine_html_a7bb56743392f62d9b391a9c88d6aca9a"><div class="ttname"><a href="classmdtModels_1_1TuringMachine.html#a7bb56743392f62d9b391a9c88d6aca9a">mdtModels::TuringMachine::getTransitions</a></div><div class="ttdeci">std::map&lt; TransitionKey, TransitionValue &gt; * getTransitions()</div><div class="ttdoc">Restituisce le transizioni come mappa. </div><div class="ttdef"><b>Definition:</b> TuringMachine.cpp:131</div></div>
+<div class="ttc" id="classmdtModels_1_1TuringMachine_html_aec33684941de3285eed17c93a3c616f0"><div class="ttname"><a href="classmdtModels_1_1TuringMachine.html#aec33684941de3285eed17c93a3c616f0">mdtModels::TuringMachine::setFinalState</a></div><div class="ttdeci">bool setFinalState(std::string finalStateToInsert)</div><div class="ttdoc">Permette di impostare lo stato finale della mdt valutandolo da una stringa. </div><div class="ttdef"><b>Definition:</b> TuringMachine.cpp:51</div></div>
+<div class="ttc" id="classmdtModels_1_1TuringMachine_html_a70c1baad0963a9b1738b7c57758776ed"><div class="ttname"><a href="classmdtModels_1_1TuringMachine.html#a70c1baad0963a9b1738b7c57758776ed">mdtModels::TuringMachine::checkStatusPresent</a></div><div class="ttdeci">bool checkStatusPresent(int state)</div><div class="ttdoc">Controlla la presenza di uno stato nella mdt. </div><div class="ttdef"><b>Definition:</b> TuringMachine.cpp:97</div></div>
+<div class="ttc" id="classmdtModels_1_1TuringMachine_html_a5279d180cd87e664447c6b40e0ce55e2"><div class="ttname"><a href="classmdtModels_1_1TuringMachine.html#a5279d180cd87e664447c6b40e0ce55e2">mdtModels::TuringMachine::~TuringMachine</a></div><div class="ttdeci">~TuringMachine()</div><div class="ttdoc">Distruttore vuoto. </div><div class="ttdef"><b>Definition:</b> TuringMachine.cpp:19</div></div>
+<div class="ttc" id="classmdtModels_1_1TuringMachine_html_affc4e3a7373c57925d866d6c54598782"><div class="ttname"><a href="classmdtModels_1_1TuringMachine.html#affc4e3a7373c57925d866d6c54598782">mdtModels::TuringMachine::addNewState</a></div><div class="ttdeci">bool addNewState(int stateToInsert)</div><div class="ttdoc">Permette di inserire un nuovo elemento all&amp;#39;interno della macchina di turing. </div><div class="ttdef"><b>Definition:</b> TuringMachine.cpp:24</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generato da &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.11
+</small></address>
+</body>
+</html>
