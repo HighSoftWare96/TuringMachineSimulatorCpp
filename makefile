@@ -14,29 +14,29 @@ $(BFOLD)TuringSimulator.x : $(OFOLD)main.o $(OFOLD)GpUtils.o $(OFOLD)TransitionK
 	@echo Linking $@
 	@$(LD) $^ -o $@
 
-main.o : $(SFOLD)main.cpp
+$(OFOLD)main.o : $(SFOLD)main.cpp
 	@echo Compiling $@
-	@$(CC) $(CFLAGS) -c $^ -o $(OFOLD)$@
+	@$(CC) $(CFLAGS) -c $^ -o $@
 
-GpUtils.o: $(SFOLD)GpUtils.cpp
+$(OFOLD)GpUtils.o: $(SFOLD)GpUtils.cpp
 	@echo Compiling $@
-	@$(CC) $(CFLAGS) -c $^ -o $(OFOLD)$@
+	@$(CC) $(CFLAGS) -c $^ -o $@
 
-TransitionKey.o: $(SFOLD)TransitionKey.cpp
+$(OFOLD)TransitionKey.o: $(SFOLD)TransitionKey.cpp
 	@echo Compiling $@
-	@$(CC) $(CFLAGS) -c $^ -o $(OFOLD)$@
+	@$(CC) $(CFLAGS) -c $^ -o $@
 
-TransitionValue.o: $(SFOLD)TransitionValue.cpp
+$(OFOLD)TransitionValue.o: $(SFOLD)TransitionValue.cpp
 	@echo Compiling $@
-	@$(CC) $(CFLAGS) -c $^ -o $(OFOLD)$@
+	@$(CC) $(CFLAGS) -c $^ -o $@
 
-TuringMachine.o: $(SFOLD)TuringMachine.cpp
+$(OFOLD)TuringMachine.o: $(SFOLD)TuringMachine.cpp
 	@echo Compiling $@
-	@$(CC) $(CFLAGS) -c $^ -o $(OFOLD)$@
+	@$(CC) $(CFLAGS) -c $^ -o $@
 
-TuringMachineState.o: $(SFOLD)TuringMachineState.cpp
+$(OFOLD)TuringMachineState.o: $(SFOLD)TuringMachineState.cpp
 	@echo Compiling $@
-	@$(CC) $(CFLAGS) -c $^ -o $(OFOLD)$@
+	@$(CC) $(CFLAGS) -c $^ -o $@
 
 
 
