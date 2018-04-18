@@ -30,15 +30,20 @@ namespace mdtModels
 		size_t getTapeSize();
 
 	private:
-		/// Macchina di Turing che verr� eseguita.
+		/// Macchina di Turing che verrà eseguita.
 		TuringMachine *machine;
 		/// Metodo privato per verificare la presenza di una transizione data la sua chiave statocorrente-simbolocorrente
 		/** Verifica che non siano presenti anche transizioni con l'asterisco: restituisce un puntatore alla transizione oppure nullptr se non esiste. */
 		TransitionValue const * getTransition(int currentState, char currentSymbol);
-		// TODO doc
+		/// Posizione corrente della testina.
 		int position;
+		/// Stato corrente della MdT.
 		int currentState;
+		/// Nastro della MdT. 
+		/** Il nastro è rappresentato nella classe come una mappa intero-carattere in cui l'intero rappresenta la posizione mentre
+		il carattere il simbolo su quella posizione. */
 		std::map<int, char> machineTape;
+		/// Restituisce una rappresentazione di una transizione effettuata dello stato attuale della MdT.
 		std::string getMachineStatus(TransitionValue const* currentTransition);
 	};
 
