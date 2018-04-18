@@ -153,6 +153,7 @@ void machineMenu(TuringMachine *machine, TuringMachineState *tape) {
 		}
 		catch (...) {
 			cout << "Input non valido..." << endl;
+			input = "";
 			continue;
 		}
 		///  Controllo che lo stato inserito sia tra quelli della MdT.
@@ -165,6 +166,7 @@ void machineMenu(TuringMachine *machine, TuringMachineState *tape) {
 		cout << "Inserisci simbolo: ";
 		cin >> input;
 		if (input.length() > 1) {
+			input = "";
 			cout << "Input non valido... Ammessi solo simboli da 1 carattere" << endl;
 			continue;
 		}
@@ -179,6 +181,7 @@ void machineMenu(TuringMachine *machine, TuringMachineState *tape) {
 			stateNToInsert = checkInput(input, 0, 100);
 		}
 		catch (...) {
+			input = "";
 			cout << "Input non valido..." << endl;
 			continue;
 		}
@@ -194,6 +197,7 @@ void machineMenu(TuringMachine *machine, TuringMachineState *tape) {
 		cin >> input;
 		if (input.length() > 1) {
 			cout << "Input non valido... Ammessi solo simboli da 1 carattere." << endl;
+			input = "";
 			continue;
 		}
 
@@ -208,6 +212,7 @@ void machineMenu(TuringMachine *machine, TuringMachineState *tape) {
 		/// Controllo la validità dell'input, (solo l r n o maiuscoli corrispondenti).
 		if (input.length() > 1 || (input != "l" && input != "n" && input != "r")) {
 			cout << "Input non valido... Ammessi solo L/l, R/r, N/n!" << endl;
+			input = "";
 			continue;
 		}
 		/// Mappo la stringa inserita con un corrispondente valore della enum di Movement.
