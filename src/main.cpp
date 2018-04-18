@@ -1,11 +1,19 @@
+#include "../include/GpUtils.h"
+#include "../include/TuringMachine.h"
+#include "../include/TuringMachineState.h"
 #include <iostream>
 #include <string>
-#include "GpUtils.h"
-#include "TuringMachine.h"
-#include "TuringMachineState.h"
+
 using namespace std;
 using namespace gpUtils;
 using namespace mdtModels;
+
+/*! \mainpage Turing machine simulator.
+ * Project presented for the C++ Course in the University of Verona. This project deals with the building of a Turing Machine simulator.
+ * It allows to create a machine within a Terminal interface and to run in on different symbols sequences (different tapes).
+ * 
+*/
+
 
 /// Funzione per mostrare a video un menu e un percorso per costruire una nuova MdT interattivamente.
 void machineMenu(TuringMachine *machine, TuringMachineState *tape);
@@ -45,7 +53,8 @@ int main() {
 		{
 		case 1:
 			/// Eliminazione oggetti riferiti.
-			delete machine, tape;
+			delete machine;
+			delete tape;
 			/// Reinizializzo tutto sia mdt che nastro.
 			machine = new TuringMachine();
 			tape = new TuringMachineState(machine);

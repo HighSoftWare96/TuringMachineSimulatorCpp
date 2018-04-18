@@ -1,11 +1,12 @@
-﻿#include "TuringMachine.h"
-#include "GpUtils.h"
+﻿#include "../include/TuringMachine.h"
+#include "../include/GpUtils.h"
+#include "../include/TransitionKey.h"
+#include "../include/TransitionValue.h"
+#include "../include/TuringMachineState.h"
 #include <iostream>
 #include <string>
 #include <map>
-#include "TransitionKey.h"
-#include "TransitionValue.h"
-#include "TuringMachineState.h"
+
 using namespace mdtModels;
 using namespace std;
 using namespace gpUtils;

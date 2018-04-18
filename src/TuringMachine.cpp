@@ -1,10 +1,11 @@
-#include "TuringMachine.h"
-#include "GpUtils.h"
+#include "../include/TuringMachine.h"
+#include "../include/GpUtils.h"
+#include "../include/TransitionKey.h"
+#include "../include/TransitionValue.h"
+#include "../include/TuringMachineState.h"
 #include <iostream>
 #include <string>
-#include "TransitionKey.h"
-#include "TransitionValue.h"
-#include "TuringMachineState.h"
+
 using namespace mdtModels;
 using namespace std;
 using namespace gpUtils;
@@ -82,7 +83,7 @@ string mdtModels::TuringMachine::printStates()
 bool mdtModels::TuringMachine::insertTransition(int state, char symbol, int nextState, char nextSymbol, Movement nextMove)
 {
 	/// Controllo la validità degli stati inseriti nella transizione.
-	if (!arrayContains(states, state) || !arrayContains(nextState, state))
+	if (!arrayContains(states, state) || !arrayContains(states, nextState))
 		return false;
 	/// Creo una chiave della mappa.
 	TransitionKey key = TransitionKey(state, symbol);
