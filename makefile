@@ -55,4 +55,8 @@ doc:
 	@doxygen doc/Doxyfile
 	@echo OK
 
-.PHONY: all clean doc
+.PHONY: all clean doc InitializeBuilding CreateFolders
+
+# CREAZIONE delle directory eventuali
+$(shell mkdir -p $(OFOLD))
+$(shell mkdir -p $(BFOLD))
