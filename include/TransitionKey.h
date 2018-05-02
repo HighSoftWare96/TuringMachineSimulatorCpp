@@ -1,5 +1,4 @@
-#ifndef TRANSITION_KEY
-#define TRANSITION_KEY
+#pragma once
 namespace mdtModels
 {
 
@@ -26,4 +25,3 @@ class TransitionKey
 	bool operator<(const TransitionKey & one, const TransitionKey & that);
 }
 
-#endif
