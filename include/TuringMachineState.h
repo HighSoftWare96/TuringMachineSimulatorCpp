@@ -1,5 +1,4 @@
-#ifndef TURING_MACHINE_STATE
-#define TURING_MACHINE_STATE
+#pragma once
 #include <map>
 #include <iostream>
 #include <string>
@@ -48,4 +47,4 @@ namespace mdtModels
 	};
 
 }
-#endif 
+
