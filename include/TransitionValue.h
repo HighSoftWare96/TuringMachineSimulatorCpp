@@ -1,5 +1,4 @@
-#ifndef TRANSITION_VALUE
-#define TRANSITION_VALUE
+#pragma once
 namespace mdtModels {
 	/// Enum per i movimenti della testina della MdT.
 	/** Questa enum utilizzata in questo namespace rappresenta 
@@ -33,7 +32,6 @@ namespace mdtModels {
 		~TransitionValue();
 	};
 }
-#endif 
 
 
 
