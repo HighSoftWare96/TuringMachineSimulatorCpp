@@ -1,5 +1,4 @@
-#ifndef GP_UTILS
-#define GP_UTILS
+#pragma once
 #include <string>
 #include <vector>
 using namespace std;
@@ -14,5 +13,3 @@ namespace gpUtils {
 	/** Per comodità la stringa viene anche restituita oltre che modificata permanentemente. */
 	string toLower(string item);
 }
-#endif
-
