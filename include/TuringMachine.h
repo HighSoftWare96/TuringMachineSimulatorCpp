@@ -1,5 +1,4 @@
-#ifndef TURING_MACHINE
-#define TURING_MACHINE
+#pragma once
 #include <map>
 #include <vector>
 #include "TransitionKey.h"
@@ -15,7 +14,7 @@ namespace mdtModels {
 
 	/// Classe per la rappresentazione di una macchina di Turing. 
 	/** Contiene tutte le informazioni rappresentanti una mdt tra cui gli stati,
-	uno stato finale, uno stato iniziale, una serie di transizioni, l'alfabeto è implicito. */
+	uno stato finale, uno stato iniziale, una serie di transizioni, l'alfabeto Ã¨ implicito. */
 	class TuringMachine
 	{
 
@@ -60,5 +59,3 @@ namespace mdtModels {
 		std::map<TransitionKey, TransitionValue> *getTransitions();
 	};
 }
-
-#endif
