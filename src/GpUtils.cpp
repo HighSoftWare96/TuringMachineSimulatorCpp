@@ -1,3 +1,11 @@
+/**
+* @copyright TuringMachineSimulatorCpp
+* license Apache
+* @author Bertoncelli Giovanni
+* @version v1.0.1
+* @date May, 2018
+* @file GpUtils.cpp
+*/
 #include "../include/GpUtils.h"
 #include <vector>
 #include <algorithm>

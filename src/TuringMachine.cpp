@@ -1,3 +1,12 @@
+/**
+* @copyright TuringMachineSimulatorCpp
+* license Apache
+* @author Bertoncelli Giovanni
+* @version v1.0.1
+* @date May, 2018
+* @file TuringMachine.cpp
+*/
+
 #include "../include/TuringMachine.h"
 #include "../include/GpUtils.h"
 #include "../include/TransitionKey.h"

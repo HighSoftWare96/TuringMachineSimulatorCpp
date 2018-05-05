@@ -1,3 +1,12 @@
+/**
+* @copyright TuringMachineSimulatorCpp
+* license Apache
+* @author Bertoncelli Giovanni
+* @version v1.0.1
+* @date May, 2018
+* @file TransitionValue.h
+*/
+
 #pragma once
 namespace mdtModels {
 	/// Enum per i movimenti della testina della MdT.

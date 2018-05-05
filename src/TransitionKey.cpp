@@ -1,3 +1,12 @@
+/**
+* @copyright TuringMachineSimulatorCpp
+* license Apache
+* @author Bertoncelli Giovanni
+* @version v1.0.1
+* @date May, 2018
+* @file TransitionKey.cpp
+*/
+
 #include "../include/TransitionKey.h"
 using namespace mdtModels;
 using namespace std;

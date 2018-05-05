@@ -1,8 +1,0 @@
-<map id="include/TransitionKey.h" name="include/TransitionKey.h">
-<area shape="rect" id="node2" href="$TuringMachine_8h.html" title="include/TuringMachine.h" alt="" coords="277,80,451,107"/>
-<area shape="rect" id="node3" href="$TuringMachineState_8h.html" title="include/TuringMachineState.h" alt="" coords="141,155,349,181"/>
-<area shape="rect" id="node5" href="$TuringMachine_8cpp.html" title="src/TuringMachine.cpp" alt="" coords="356,229,519,256"/>
-<area shape="rect" id="node6" href="$TuringMachineState_8cpp.html" title="src/TuringMachineState.cpp" alt="" coords="5,229,203,256"/>
-<area shape="rect" id="node7" href="$TransitionKey_8cpp.html" title="src/TransitionKey.cpp" alt="" coords="525,80,677,107"/>
-<area shape="rect" id="node4" href="$main_8cpp.html" title="src/main.cpp" alt="" coords="228,229,332,256"/>
-</map>
