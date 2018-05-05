@@ -47,6 +47,13 @@ ADD_CUSTOM_TARGET(stats
     COMMENT "Building code stats"
 )
 
+ADD_CUSTOM_TARGET(format
+    COMMAND clang-format -style=llvm -dump-config > .clang-format
+    COMMAND clang-format ./src/*.cpp
+    COMMAND clang-format ./include/*.h
+    COMMENT "Clang-formatting code documents"
+)
+
 ENABLE_TESTING()
 
 ADD_TEST(NAME Test1 
