@@ -29,7 +29,7 @@ namespace mdtModels {
 
 	private:
 		/// Vector contenente gli stati della MdT, dinamico.
-		std::vector<int> states;
+		std::vector<int> *states;
 		/// Stato iniziale della mdt.
 		int initialState;
 		/// Stato finale della mdt.
@@ -37,7 +37,7 @@ namespace mdtModels {
 		/// Transizioni della macchina di turing.
 		/** Mappo ogni transizione con un oggetto TransitionKey che contiene stato attuale e simbolo attuale con un TransitionValue che contiene uno stato successivo
 		, un simbolo da scrivere e un movimento da fare della testina.*/
-		std::map<TransitionKey, TransitionValue> transitions;
+		std::map<TransitionKey, TransitionValue> *transitions;
 
 	public:
 		/// Costruttore vuoto.
@@ -51,7 +51,7 @@ namespace mdtModels {
 		/// Permette di impostare lo stato finale della mdt valutandolo da una stringa.
 		bool setFinalState(std::string finalStateToInsert);
 		/// Restituisce il vettore contenente gli stati della mdt.
-		std::vector<int> getStates();
+		std::vector<int> *getStates();
 		/// Restituisce una rappresentazione a stringa degli stati della mdt.
 		std::string printStates();
 		/// Inserisce una transizione ricevuti tutti gli argomenti necessari.

@@ -1,33 +1,48 @@
 /**
-* @copyright TuringMachineSimulatorCpp
-* license Apache
-* @author Bertoncelli Giovanni
-* @version v1.0.1
-* @date May, 2018
-* @file GpUtils.cpp
-*/
+ * @copyright TuringMachineSimulatorCpp
+ * license Apache
+ * @author Bertoncelli Giovanni
+ * @version v1.0.1
+ * @date May, 2018
+ * @file GpUtils.cpp
+ */
 #include "../include/GpUtils.h"
-#include <vector>
 #include <algorithm>
+#include <iostream>
 #include <string>
+#include <vector>
 
-bool gpUtils::arrayContains(vector<int> array, int item) {
-	for (int i : array) {
-		if (item == i)
-			return true;
-	}
-	return false;
-}
-int gpUtils::checkInput(string stringa, int inRange, int outRange)
-{
-	int result = stoi(stringa);
-	if (result < inRange || result > outRange)
-		throw "EXC: Input scorretto!";
-	return result;
+using namespace std;
+
+bool gpUtils::arrayContains(std::vector<int> *array, int item) {
+  for (int i : *array) {
+    if (item == i)
+      return true;
+  }
+  return false;
 }
 
-string gpUtils::toLower(string item)
-{
-	std::transform(item.begin(), item.end(), item.begin(), ::tolower);
-	return item;
+string gpUtils::toLower(string item) {
+  std::transform(item.begin(), item.end(), item.begin(), ::tolower);
+  return item;
+}
+
+template <>
+int gpUtils::checkInput<string>(string input, int inRange, int outRange) {
+  int result;
+  try {
+    result = stoi(input);
+  } catch (std::invalid_argument) {
+    return inRange - 1;
+  }
+  if (result < inRange || result > outRange)
+    return inRange - 1;
+
+  return result;
+}
+
+template <> int gpUtils::checkInput<int>(int input, int inRange, int outRange) {
+  if (input < inRange || input > outRange)
+    return inRange - 1;
+  return input;
 }

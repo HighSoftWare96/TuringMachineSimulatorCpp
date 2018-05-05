@@ -4,11 +4,26 @@ PROJECT(TuringMachineSimulatorCpp)
 CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
 
 CHECK_CXX_COMPILER_FLAG("-std=c++14" COMPILER_SUPPORTS_CXX14)
+
 IF(COMPILER_SUPPORTS_CXX14)
     ADD_COMPILE_OPTIONS("-std=c++14")
 ELSE()
     MESSAGE(FATAL_ERROR "Compilatore ${CMAKE_CXX_COMPILER} non supporta C++14.")
 ENDIF()
+
+IF (CMAKE_BUILD_TYPE STREQUAL "Debug")
+    ADD_COMPILE_OPTIONS("-g")
+    ADD_COMPILE_OPTIONS("-O1")
+    IF (CMAKE_COMPILER_IS_GNUCXX)
+        ADD_COMPILE_OPTIONS("-ggdb3")
+    ELSEIF (CMAKE_CXX_COMPILER_ID EQUAL "Clang")
+        ADD_COMPILE_OPTIONS("-fsanitize=address")
+        ADD_COMPILE_OPTIONS("-fno-omit-frame-pointer")
+    ENDIF()
+ELSEIF (CMAKE_BUILD_TYPE STREQUAL "Release") # "Release" mode
+    ADD_COMPILE_OPTIONS("-O2")
+ENDIF()
+
 
 INCLUDE_DIRECTORIES("${PROJECT_SOURCE_DIR}/include")
 FILE(GLOB_RECURSE SRCS ${PROJECT_SOURCE_DIR}/src/*.cpp)
@@ -45,6 +60,11 @@ ADD_CUSTOM_TARGET(scan-build
 ADD_CUSTOM_TARGET(stats
     COMMAND cloc .
     COMMENT "Building code stats"
+)
+
+ADD_CUSTOM_TARGET(valgrind
+    COMMAND valgrind ./bin/TuringSimulatorOut.x
+    COMMENT "Clang-formatting code documents"
 )
 
 ADD_CUSTOM_TARGET(format
