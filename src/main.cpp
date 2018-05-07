@@ -27,10 +27,10 @@ using namespace mdtModels;
 
 /// Funzione per mostrare a video un menu e un percorso per costruire una nuova
 /// MdT interattivamente.
-void machineMenu(TuringMachine& machine, TuringMachineState& tape);
+void machineMenu(TuringMachine &machine, TuringMachineState &tape);
 /// Funzione per mostrare a video un percorso separato per il cambio del nastro
 /// della MdT.
-void writeTape(TuringMachineState& tape);
+void writeTape(TuringMachineState &tape);
 
 /// Main del programma: entry point.
 int main() {
@@ -97,7 +97,7 @@ int main() {
   return 0;
 }
 
-void machineMenu(TuringMachine& machine, TuringMachineState& tape) {
+void machineMenu(TuringMachine &machine, TuringMachineState &tape) {
   /// RAW input dell'utente.
   string input = "";
   /// Input intero convertito dell'utente.
@@ -139,7 +139,8 @@ void machineMenu(TuringMachine& machine, TuringMachineState& tape) {
 
   /// Inserisce uno stato finale, se è false allora non è tra quelli presenti.
   do {
-    cout << "Inserisci lo stato finale (che corrisponda ad uno dei presenti): ";
+    cout << "Inserisci lo stato finale (che corrisponda ad uno dei presenti, "
+            "-1 per finire): ";
     cin >> input;
   } while (!machine.setFinalState(input));
 
@@ -242,7 +243,7 @@ void machineMenu(TuringMachine& machine, TuringMachineState& tape) {
 
     /// Inserisco la transizione nella MdT con tutti i dati raccolti finora.
     machine.insertTransition(stateToInsert, symbolToInsert, stateNToInsert,
-                              symbolNToInsert, moveNToInsert);
+                             symbolNToInsert, moveNToInsert);
 
     /// Restituisco una rappresentazione a schermo della transizione appena
     /// creata e inserita.
@@ -266,13 +267,13 @@ void machineMenu(TuringMachine& machine, TuringMachineState& tape) {
   /// Stampo un riepilogo per visualizzare la MdT appena creata.
   cout << "MdT costruita, riepilogo:\n";
   cout << "STATI: " << machine.printStates() << endl;
-  cout << "STATO INIZIALE: " << to_string(machine.getInitialState()) << endl;
-  cout << "STATO FINALE: " << to_string(machine.getFinalState()) << endl;
+  cout << "STATO INIZIALE: " << machine.getInitialState().value << endl;
+  cout << "STATO FINALE: " << machine.getFinalState().value << endl;
   cout << "TRANSIZIONI:\n" << machine.printTransitions();
   cout << "NASTRO: " << tape.printTape() << endl;
 }
 
-void writeTape(TuringMachineState& tape) {
+void writeTape(TuringMachineState &tape) {
 
   /// Svuoto il nastro (anche se non dovrebbe servire).
   tape.flush();

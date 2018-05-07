@@ -10,7 +10,8 @@
 #pragma once
 #include <map>
 #include <vector>
-#include "TransitionKey.h"
+#include "TransitionBase.h"
+#include "State.h"
 #include "TransitionValue.h"
 #include <string>
 
@@ -29,15 +30,15 @@ namespace mdtModels {
 
 	private:
 		/// Vector contenente gli stati della MdT, dinamico.
-		std::vector<int> *states;
+		std::vector<State<int>> *states;
 		/// Stato iniziale della mdt.
-		int initialState;
+		State<int> initialState;
 		/// Stato finale della mdt.
-		int finalState;
+		State<int> finalState;
 		/// Transizioni della macchina di turing.
 		/** Mappo ogni transizione con un oggetto TransitionKey che contiene stato attuale e simbolo attuale con un TransitionValue che contiene uno stato successivo
 		, un simbolo da scrivere e un movimento da fare della testina.*/
-		std::map<TransitionKey, TransitionValue> *transitions;
+		std::map<TransitionBase, TransitionValue> *transitions;
 
 	public:
 		/// Costruttore vuoto.
@@ -51,7 +52,7 @@ namespace mdtModels {
 		/// Permette di impostare lo stato finale della mdt valutandolo da una stringa.
 		bool setFinalState(std::string finalStateToInsert);
 		/// Restituisce il vettore contenente gli stati della mdt.
-		std::vector<int> *getStates();
+		std::vector<State<int>> *getStates();
 		/// Restituisce una rappresentazione a stringa degli stati della mdt.
 		std::string printStates();
 		/// Inserisce una transizione ricevuti tutti gli argomenti necessari.
@@ -61,10 +62,10 @@ namespace mdtModels {
 		/// Restituisce una rappresentazione a stringa delle transizioni della mdt.
 		std::string printTransitions();
 		/// Restituisce lo stato iniziale.
-		int getInitialState();
+		State<int> getInitialState();
 		/// Restituisce lo stato finale.
-		int getFinalState();
+		State<int> getFinalState();
 		/// Restituisce le transizioni come mappa.
-		std::map<TransitionKey, TransitionValue> *getTransitions();
+		std::map<TransitionBase, TransitionValue> *getTransitions();
 	};
 }

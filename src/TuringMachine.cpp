@@ -9,9 +9,11 @@
 
 #include "../include/TuringMachine.h"
 #include "../include/GpUtils.h"
-#include "../include/TransitionKey.h"
+#include "../include/TransitionBase.h"
 #include "../include/TransitionValue.h"
 #include "../include/TuringMachineState.h"
+#include "../include/State.h"
+
 #include <iostream>
 #include <string>
 
@@ -20,8 +22,8 @@ using namespace std;
 using namespace gpUtils;
 
 TuringMachine::TuringMachine() {
-  this->states = new vector<int>();
-  this->transitions = new map<TransitionKey, TransitionValue>();
+  this->states = new vector<State<int>>();
+  this->transitions = new map<TransitionBase, TransitionValue>();
 }
 
 TuringMachine::~TuringMachine() {
@@ -31,50 +33,53 @@ TuringMachine::~TuringMachine() {
 
 /// Permette di inserire un nuovo elemento all'interno della macchina di turing.
 bool TuringMachine::addNewState(int stateToInsert) {
+  State<int> tempState = State<int>();
+  tempState.value = stateToInsert;
   /// Se lo stato non esiste restituisce false, altrimenti true.
-  if (arrayContains(states, stateToInsert))
+  if (arrayContains(states, tempState))
     return false;
   /// Solo stati positivi.
-  if (stateToInsert >= 0)
-    states->push_back(stateToInsert);
+  if (tempState.value >= 0)
+    states->push_back(tempState);
   return true;
 }
 
 bool TuringMachine::setInitialState(string rawString) {
-  int initialStateToInsert;
+  State<int> tempState = State<int>();
   /// Parserizzo e controllo la stringa in input.
-  if ((initialStateToInsert = checkInput<std::string>(rawString, 0, 100)) ==
-      -1) {
+  if ((tempState.value = checkInput<std::string>(rawString, 0, 100)) == -1) {
     return false;
   }
   /// Controllo la validità dello stato (deve esistere).
-  if (initialStateToInsert < 0 || !arrayContains(states, initialStateToInsert))
+  if (tempState.value < 0 || !arrayContains(states, tempState))
     return false;
   else
-    initialState = initialStateToInsert;
+    initialState = tempState;
   return true;
 }
 
 bool TuringMachine::setFinalState(string rawString) {
   /// Come funzione precedente.
-  int finalStateToInsert;
-  if ((finalStateToInsert = checkInput<std::string>(rawString, 0, 100)) == -1) {
+  State<int> tempState = State<int>();
+  if ((tempState.value = checkInput<std::string>(rawString, 0, 100)) == -1) {
     return false;
   }
-  if (finalStateToInsert < 0 || !arrayContains(states, finalStateToInsert))
+  if (tempState.value < 0 || !arrayContains(states, tempState))
     return false;
   else
-    finalState = finalStateToInsert;
+    finalState = tempState;
   return true;
 }
 
-std::vector<int> *mdtModels::TuringMachine::getStates() { return states; }
+std::vector<State<int>> *mdtModels::TuringMachine::getStates() {
+  return states;
+}
 
 string mdtModels::TuringMachine::printStates() {
   string result;
-  for (int item : *states) {
+  for (auto item : *states) {
     result += "[";
-    result += to_string(item);
+    result += item.value;
     result += "] ";
   }
   return result;
@@ -83,11 +88,15 @@ string mdtModels::TuringMachine::printStates() {
 bool mdtModels::TuringMachine::insertTransition(int state, char symbol,
                                                 int nextState, char nextSymbol,
                                                 Movement nextMove) {
+  State<int> currentState = State<int>();
+  currentState.value = state;
+  State<int> nextStateS = State<int>();
+  nextStateS.value = state;
   /// Controllo la validità degli stati inseriti nella transizione.
-  if (!arrayContains(states, state) || !arrayContains(states, nextState))
+  if (!arrayContains(states, currentState) || !arrayContains(states, nextStateS))
     return false;
   /// Creo una chiave della mappa.
-  TransitionKey key = TransitionKey(state, symbol);
+  TransitionBase key = TransitionBase(state, symbol);
   /// Creo il valore della mappa.
   TransitionValue value = TransitionValue(nextState, nextSymbol, nextMove);
   /// Inserisco (con eventuale sovrascrittura).
@@ -96,20 +105,22 @@ bool mdtModels::TuringMachine::insertTransition(int state, char symbol,
 }
 
 bool mdtModels::TuringMachine::checkStatusPresent(int state) {
-  return arrayContains(states, state);
+  State<int> tempState = State<int>();
+  tempState.value = state;
+  return arrayContains(states, tempState);
 }
 
 std::string mdtModels::TuringMachine::printTransitions() {
   string result = "";
-  for (const pair<TransitionKey, TransitionValue> &item : *transitions) {
+  for (const pair<TransitionBase, TransitionValue> &item : *transitions) {
     result += "(";
-    result += to_string(item.first.currentState);
+    result += to_string(item.first.state);
     result += ",";
-    result += item.first.currentSymbol;
+    result += item.first.symbol;
     result += ") => (";
-    result += to_string(item.second.nextState);
+    result += to_string(item.second.state);
     result += ",";
-    result += item.second.nextSymbol;
+    result += item.second.symbol;
     result += ",";
     result +=
         (item.second.nextMove == L ? "L"
@@ -119,11 +130,11 @@ std::string mdtModels::TuringMachine::printTransitions() {
   return result;
 }
 
-int mdtModels::TuringMachine::getInitialState() { return initialState; }
+State<int> mdtModels::TuringMachine::getInitialState() { return initialState; }
 
-int mdtModels::TuringMachine::getFinalState() { return finalState; }
+State<int> mdtModels::TuringMachine::getFinalState() { return finalState; }
 
-std::map<TransitionKey, TransitionValue> *
+std::map<TransitionBase, TransitionValue> *
 mdtModels::TuringMachine::getTransitions() {
   return transitions;
 }

@@ -16,7 +16,9 @@ using namespace std;
 namespace gpUtils {
 /// Funzione per verificare se un elemento intero è all'interno di un vector di
 /// interi.
-bool arrayContains(vector<int> *array, int item);
+
+template<typename T>
+bool arrayContains(vector<T> *array, T item);
 
 /// Funzione che converte in-place una stringa nella sua corrispondente tutta
 /// minuscola.

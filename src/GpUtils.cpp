@@ -14,8 +14,9 @@
 
 using namespace std;
 
-bool gpUtils::arrayContains(std::vector<int> *array, int item) {
-  for (int i : *array) {
+template <typename T>
+bool gpUtils::arrayContains(std::vector<T> *array, T item) {
+  for (T i : *array) {
     if (item == i)
       return true;
   }
@@ -27,8 +28,7 @@ string gpUtils::toLower(string item) {
   return item;
 }
 
-template <>
-int gpUtils::checkInput<string>(string input, int inRange, int outRange) {
+template <> int gpUtils::checkInput<string>(string input, int inRange, int outRange) {
   int result;
   try {
     result = stoi(input);
