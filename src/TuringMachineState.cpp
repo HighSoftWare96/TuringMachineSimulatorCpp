@@ -7,11 +7,11 @@
 * @file TuringMachineState.cpp
 */
 
+#include "../include/TuringMachineState.h"
 #include "../include/TuringMachine.h"
 #include "../include/GpUtils.h"
-#include "../include/TransitionKey.h"
+#include "../include/TransitionBase.h"
 #include "../include/TransitionValue.h"
-#include "../include/TuringMachineState.h"
 #include <iostream>
 #include <string>
 #include <map>
@@ -23,17 +23,19 @@ using namespace gpUtils;
 mdtModels::TuringMachineState::TuringMachineState(TuringMachine *machine)
 {
 	this->machine = machine;
+	this->machineTape = new std::map<int, char>();
 }
 
 
 mdtModels::TuringMachineState::~TuringMachineState()
 {
+	delete this->machineTape;
 }
 
 std::string mdtModels::TuringMachineState::printTape()
 {
 	string result = u8"";
-	for (const pair<int, char>& item : machineTape) {
+	for (const pair<int, char>& item : *machineTape) {
 		result += item.second;
 		result += " ";
 	}
@@ -58,13 +60,13 @@ void mdtModels::TuringMachineState::execute()
 	while (mdtContinues) {
 
 		/// controllo posizione su nastro
-		if (machineTape.find(position) == machineTape.end()) {
+		if ((*machineTape).find(position) == (*machineTape).end()) {
 			/// Se la posizione not found => metto il simbolo vuoto.
-			machineTape[position] = '$'; /// TODO: verificare
+			(*machineTape)[position] = '$'; 
 		}
 
 		/// Tento di recuperare la transizione corrente.
-		currentTransition = getTransition(currentState, machineTape[position]);
+		currentTransition = getTransition(currentState, (*machineTape)[position]);
 		/// Verifico se la macchina termina o no (esiste la transizione).
 		mdtContinues = currentTransition != nullptr;
 
@@ -73,9 +75,9 @@ void mdtModels::TuringMachineState::execute()
 			/// Restituisco la rappresentazione della transizione effettuata.
 			cout << getMachineStatus(currentTransition);
 			/// Imposto il carattere da inserire.
-			machineTape[position] = currentTransition->nextSymbol;
+			(*machineTape)[position] = currentTransition->symbol;
 			/// Imposto il prossimo stato
-			currentState = currentTransition->nextState;
+			currentState = currentTransition->state;
 			/// Procedo con il movimento della testina aggiornando la sua posizione.
 			position += currentTransition->nextMove;
 		}
@@ -90,28 +92,28 @@ void mdtModels::TuringMachineState::execute()
 void mdtModels::TuringMachineState::addSymbol(int position, char symbol)
 {
 	/// Inserisco il simbolo nella mappa con quella posizione e quel char.
-	this->machineTape.insert(std::pair<int, char>(position, symbol));
+	this->machineTape->insert(std::pair<int, char>(position, symbol));
 }
 
 void mdtModels::TuringMachineState::flush()
 {
 	/// Ripulisco la map del tape.
-	this->machineTape.clear();
+	this->machineTape->clear();
 }
 
 size_t mdtModels::TuringMachineState::getTapeSize()
 {
 	/// Ritorno la grandezza del nastro.
-	return machineTape.size();
+	return machineTape->size();
 }
 
 TransitionValue  const * mdtModels::TuringMachineState::getTransition(int currentState, char currentSymbol) {
 	/// Puntatore alle transizioni della MdT.
 	auto *transitions = machine->getTransitions();
 	/// itero per tutta la mappa tramite il puntatore/iterator alla mappa stessa, se trovo la transizione restituisco il suo puntatore
-	for (std::map<TransitionKey, TransitionValue>::iterator it = transitions->begin(); it != transitions->end(); it++) {
+	for (std::map<TransitionBase, TransitionValue>::iterator it = transitions->begin(); it != transitions->end(); it++) {
 		/// trovo una transizione con l'asterisco e quello stato oppure quello stato e quel simbolo
-		if (it->first.currentState == currentState && (it->first.currentSymbol == currentSymbol || it->first.currentSymbol == '*'))
+		if (it->first.state == currentState && (it->first.symbol == currentSymbol || it->first.symbol == '*'))
 			return &it->second;
 	}
 	return nullptr;
@@ -126,11 +128,11 @@ std::string mdtModels::TuringMachineState::getMachineStatus(TransitionValue cons
 	result.append("\nSTATO CORRENTE: ");
 	result += to_string(currentState);
 	result.append(" | SIMBOLO su nastro: ");
-	result += machineTape[position];
+	result += (*machineTape)[position];
 	result.append("\nPROSSIMO STATO: ");
-	result += to_string(currentTransition->nextState);
+	result += to_string(currentTransition->state);
 	result.append(" | PROSSIMO SIMBOLO: ");
-	result += currentTransition->nextSymbol;
+	result += currentTransition->symbol;
 	result.append(" | MOVIMENTO: ");
 	result += (currentTransition->nextMove == L ? "L" : ((currentTransition->nextMove == R) ? "R" : "N"));
 	result.append("\nNASTRO: ");

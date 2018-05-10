@@ -14,21 +14,12 @@
 
 using namespace std;
 
-bool gpUtils::arrayContains(std::vector<int> *array, int item) {
-  for (int i : *array) {
-    if (item == i)
-      return true;
-  }
-  return false;
-}
-
 string gpUtils::toLower(string item) {
   std::transform(item.begin(), item.end(), item.begin(), ::tolower);
   return item;
 }
 
-template <>
-int gpUtils::checkInput<string>(string input, int inRange, int outRange) {
+template <> int gpUtils::checkInput<string>(string input, int inRange, int outRange) {
   int result;
   try {
     result = stoi(input);

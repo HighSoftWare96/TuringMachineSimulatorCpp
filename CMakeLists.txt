@@ -24,16 +24,23 @@ ELSEIF (CMAKE_BUILD_TYPE STREQUAL "Release") # "Release" mode
     ADD_COMPILE_OPTIONS("-O2")
 ENDIF()
 
+SET(WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/build)
+SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+add_library(Catch INTERFACE)
+target_include_directories(Catch INTERFACE ${PROJECT_SOURCE_DIR}/lib)
 
 INCLUDE_DIRECTORIES("${PROJECT_SOURCE_DIR}/include")
-FILE(GLOB_RECURSE SRCS ${PROJECT_SOURCE_DIR}/src/*.cpp)
+file(GLOB_RECURSE sources "src/*.cpp")
+file(GLOB_RECURSE testing_sources "test/*.cpp")
+ADD_EXECUTABLE(TuringSimulatorOut.x ${sources})
+ADD_EXECUTABLE(Testing.x ${testing_sources})
+target_link_libraries(Testing.x Catch)
 
 ADD_COMPILE_OPTIONS("-Wall")
 ADD_COMPILE_OPTIONS("-Wextra")
 ADD_COMPILE_OPTIONS("-pedantic")
 
-
-SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 ADD_CUSTOM_TARGET(doc
     COMMAND doxygen doxyfile.cfg 
@@ -47,6 +54,7 @@ COMMAND rm -rf ./CMakeFiles
 COMMAND rm -rf CMakeCache.txt
 COMMAND rm -rf cmake_install.cmake
 COMMAND rm -rf bin/TuringSimulatorOut.x
+COMMAND rm -rf bin/Testing.x
 COMMAND rm -rf doc/html
 COMMAND rm -rf ./Testing
 COMMAND rm -rf *.json *.cmake
@@ -76,15 +84,7 @@ ADD_CUSTOM_TARGET(format
 
 ENABLE_TESTING()
 
-ADD_TEST(NAME Test1 
-WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/build
-COMMAND TuringSimulatorOut.x)
-
-ADD_TEST(NAME Test2
-WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/build
-COMMAND TuringSimulatorOut.x) 
-
-SET_TESTS_PROPERTIES(Test2
-PROPERTIES PASS_REGULAR_EXPRESSION "Correct")
-
-ADD_EXECUTABLE(TuringSimulatorOut.x ${SRCS})
+ADD_TEST(NAME AllTests
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/test
+    COMMAND Testing.x -r xml -o test_report.xml
+)

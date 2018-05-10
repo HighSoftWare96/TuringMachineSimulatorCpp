@@ -10,7 +10,7 @@
 #pragma once
 #include <map>
 #include <vector>
-#include "TransitionKey.h"
+#include "TransitionBase.h"
 #include "TransitionValue.h"
 #include <string>
 
@@ -37,7 +37,7 @@ namespace mdtModels {
 		/// Transizioni della macchina di turing.
 		/** Mappo ogni transizione con un oggetto TransitionKey che contiene stato attuale e simbolo attuale con un TransitionValue che contiene uno stato successivo
 		, un simbolo da scrivere e un movimento da fare della testina.*/
-		std::map<TransitionKey, TransitionValue> *transitions;
+		std::map<TransitionBase, TransitionValue> *transitions;
 
 	public:
 		/// Costruttore vuoto.
@@ -65,6 +65,6 @@ namespace mdtModels {
 		/// Restituisce lo stato finale.
 		int getFinalState();
 		/// Restituisce le transizioni come mappa.
-		std::map<TransitionKey, TransitionValue> *getTransitions();
+		std::map<TransitionBase, TransitionValue> *getTransitions();
 	};
 }

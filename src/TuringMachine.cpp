@@ -9,7 +9,7 @@
 
 #include "../include/TuringMachine.h"
 #include "../include/GpUtils.h"
-#include "../include/TransitionKey.h"
+#include "../include/TransitionBase.h"
 #include "../include/TransitionValue.h"
 #include "../include/TuringMachineState.h"
 #include <iostream>
@@ -21,7 +21,7 @@ using namespace gpUtils;
 
 TuringMachine::TuringMachine() {
   this->states = new vector<int>();
-  this->transitions = new map<TransitionKey, TransitionValue>();
+  this->transitions = new map<TransitionBase, TransitionValue>();
 }
 
 TuringMachine::~TuringMachine() {
@@ -87,7 +87,7 @@ bool mdtModels::TuringMachine::insertTransition(int state, char symbol,
   if (!arrayContains(states, state) || !arrayContains(states, nextState))
     return false;
   /// Creo una chiave della mappa.
-  TransitionKey key = TransitionKey(state, symbol);
+  TransitionBase key = TransitionBase(state, symbol);
   /// Creo il valore della mappa.
   TransitionValue value = TransitionValue(nextState, nextSymbol, nextMove);
   /// Inserisco (con eventuale sovrascrittura).
@@ -101,15 +101,15 @@ bool mdtModels::TuringMachine::checkStatusPresent(int state) {
 
 std::string mdtModels::TuringMachine::printTransitions() {
   string result = "";
-  for (const pair<TransitionKey, TransitionValue> &item : *transitions) {
+  for (const pair<TransitionBase, TransitionValue> &item : *transitions) {
     result += "(";
-    result += to_string(item.first.currentState);
+    result += to_string(item.first.state);
     result += ",";
-    result += item.first.currentSymbol;
+    result += item.first.symbol;
     result += ") => (";
-    result += to_string(item.second.nextState);
+    result += to_string(item.second.state);
     result += ",";
-    result += item.second.nextSymbol;
+    result += item.second.symbol;
     result += ",";
     result +=
         (item.second.nextMove == L ? "L"
@@ -123,7 +123,7 @@ int mdtModels::TuringMachine::getInitialState() { return initialState; }
 
 int mdtModels::TuringMachine::getFinalState() { return finalState; }
 
-std::map<TransitionKey, TransitionValue> *
+std::map<TransitionBase, TransitionValue> *
 mdtModels::TuringMachine::getTransitions() {
   return transitions;
 }
