@@ -27,4 +27,3 @@ bool mdtModels::operator<(const TransitionBase &one,
   return one.state == that.state ? one.symbol < that.symbol
                                  : one.state < that.state;
 }
-

@@ -14,15 +14,6 @@
 
 using namespace std;
 
-template <typename T>
-bool gpUtils::arrayContains(std::vector<T> *array, T item) {
-  for (T i : *array) {
-    if (item == i)
-      return true;
-  }
-  return false;
-}
-
 string gpUtils::toLower(string item) {
   std::transform(item.begin(), item.end(), item.begin(), ::tolower);
   return item;

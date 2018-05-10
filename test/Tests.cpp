@@ -121,7 +121,6 @@ TEST_CASE("TuringMachine: getInitialState", "[getInitialState]") {
   REQUIRE(turingMachine->setInitialState("1") == true);
   REQUIRE(turingMachine->setFinalState("2") == true);
   REQUIRE(turingMachine->getInitialState() == 1);
-  REQUIRE(turingMachine->getFinalState()->isFinalState(2));
   delete turingMachine;
 }
 

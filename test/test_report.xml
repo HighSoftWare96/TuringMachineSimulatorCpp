@@ -31,10 +31,10 @@
     <TestCase name="TuringMachine: getInitialState" tags="[getInitialState]" filename="/mnt/c/Users/giova/Documents/UNIVR/Cpp project/TuringMachineSimulatorCpp/test/Tests.cpp" line="117">
       <OverallResult success="true"/>
     </TestCase>
-    <TestCase name="TuringMachineState: addSymbol" tags="[addSymbol]" filename="/mnt/c/Users/giova/Documents/UNIVR/Cpp project/TuringMachineSimulatorCpp/test/Tests.cpp" line="128">
+    <TestCase name="TuringMachineState: addSymbol" tags="[addSymbol]" filename="/mnt/c/Users/giova/Documents/UNIVR/Cpp project/TuringMachineSimulatorCpp/test/Tests.cpp" line="127">
       <OverallResult success="true"/>
     </TestCase>
-    <OverallResults successes="40" failures="0" expectedFailures="0"/>
+    <OverallResults successes="39" failures="0" expectedFailures="0"/>
   </Group>
-  <OverallResults successes="40" failures="0" expectedFailures="0"/>
+  <OverallResults successes="39" failures="0" expectedFailures="0"/>
 </Catch>

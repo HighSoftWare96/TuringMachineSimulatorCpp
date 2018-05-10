@@ -11,7 +11,6 @@
 #include <map>
 #include <vector>
 #include "TransitionBase.h"
-#include "State.h"
 #include "TransitionValue.h"
 #include <string>
 
@@ -30,11 +29,11 @@ namespace mdtModels {
 
 	private:
 		/// Vector contenente gli stati della MdT, dinamico.
-		std::vector<State<int>> *states;
+		std::vector<int> *states;
 		/// Stato iniziale della mdt.
-		State<int> initialState;
+		int initialState;
 		/// Stato finale della mdt.
-		State<int> finalState;
+		int finalState;
 		/// Transizioni della macchina di turing.
 		/** Mappo ogni transizione con un oggetto TransitionKey che contiene stato attuale e simbolo attuale con un TransitionValue che contiene uno stato successivo
 		, un simbolo da scrivere e un movimento da fare della testina.*/
@@ -52,7 +51,7 @@ namespace mdtModels {
 		/// Permette di impostare lo stato finale della mdt valutandolo da una stringa.
 		bool setFinalState(std::string finalStateToInsert);
 		/// Restituisce il vettore contenente gli stati della mdt.
-		std::vector<State<int>> *getStates();
+		std::vector<int> *getStates();
 		/// Restituisce una rappresentazione a stringa degli stati della mdt.
 		std::string printStates();
 		/// Inserisce una transizione ricevuti tutti gli argomenti necessari.
@@ -62,9 +61,9 @@ namespace mdtModels {
 		/// Restituisce una rappresentazione a stringa delle transizioni della mdt.
 		std::string printTransitions();
 		/// Restituisce lo stato iniziale.
-		State<int> getInitialState();
+		int getInitialState();
 		/// Restituisce lo stato finale.
-		State<int> getFinalState();
+		int getFinalState();
 		/// Restituisce le transizioni come mappa.
 		std::map<TransitionBase, TransitionValue> *getTransitions();
 	};

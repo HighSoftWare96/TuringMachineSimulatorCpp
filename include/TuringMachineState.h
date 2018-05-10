@@ -11,7 +11,6 @@
 #include "TransitionBase.h"
 #include "TransitionValue.h"
 #include "TuringMachine.h"
-#include "State.h"
 #include <iostream>
 #include <map>
 #include <string>
@@ -50,11 +49,11 @@ private:
   /// Posizione corrente della testina.
   int position;
   /// Stato corrente della MdT.
-  State<int> currentState;
+  int currentState;
   /// Nastro della MdT.
   /** Il nastro è rappresentato nella classe come una mappa intero-carattere in
-  cui l'intero rappresenta la posizione mentre il carattere il simbolo su quella
-  posizione. */
+  cui l'intero rappresenta la posizione mentre
+  il carattere il simbolo su quella posizione. */
   std::map<int, char> *machineTape;
   /// Restituisce una rappresentazione di una transizione effettuata dello stato
   /// attuale della MdT.

@@ -18,8 +18,13 @@ namespace gpUtils {
 /// interi.
 
 template<typename T>
-bool arrayContains(vector<T> *array, T item);
-
+inline bool arrayContains(std::vector<T> *array, T item) {
+  for (T i : *array) {
+    if (item == i)
+      return true;
+  }
+  return false;
+}
 /// Funzione che converte in-place una stringa nella sua corrispondente tutta
 /// minuscola.
 /** Per comodità la stringa viene anche restituita oltre che modificata

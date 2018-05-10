@@ -23,7 +23,7 @@ enum Movement { L = -1, N = 0, R = 1 };
 macchina, il simbolo da scrivere e il movimento da fare data una certa chiave.
 */
 class TransitionValue : public TransitionBase {
-public: 
+public:
   /// Prossimo movimento della MdT.
   Movement nextMove;
 
