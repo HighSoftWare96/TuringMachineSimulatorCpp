@@ -1,4 +1,4 @@
-﻿/**
+/**
 * @copyright TuringMachineSimulatorCpp
 * license Apache
 * @author Bertoncelli Giovanni
