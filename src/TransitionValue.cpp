@@ -8,15 +8,13 @@
  */
 
 #include "../include/TransitionValue.h"
-using namespace mdtModels;
-using namespace std;
-
+#include <iostream>
 mdtModels::TransitionValue::TransitionValue() {}
 
 mdtModels::TransitionValue::TransitionValue(int nextState, char nextSymbol,
-                                            Movement nextMove)
-    : TransitionBase(nextState, nextSymbol) {
-  this->nextMove = nextMove;
+                                            const mdtModels::Movement& nextMoveP)
+    : mdtModels::TransitionBase(nextState, nextSymbol) {
+  this->nextMove = nextMoveP;
 }
 
-TransitionValue::~TransitionValue() {}
+mdtModels::TransitionValue::~TransitionValue() {}

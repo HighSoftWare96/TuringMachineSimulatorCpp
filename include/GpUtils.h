@@ -1,6 +1,5 @@
 /**
- * @copyright TuringMachineSimulatorCpp
- * license Apache
+ * @copyright TuringMachineSimulatorCpp license Apache
  * @author Bertoncelli Giovanni
  * @version v1.0.1
  * @date May, 2018
@@ -18,8 +17,8 @@ namespace gpUtils {
 /// interi.
 
 template<typename T>
-inline bool arrayContains(std::vector<T> *array, T item) {
-  for (T i : *array) {
+bool arrayContains(std::vector<T> &array, T item) {
+  for (T i : array) {
     if (item == i)
       return true;
   }
@@ -29,14 +28,15 @@ inline bool arrayContains(std::vector<T> *array, T item) {
 /// minuscola.
 /** Per comodità la stringa viene anche restituita oltre che modificata
  * permanentemente. */
-string toLower(string item);
+string toLower(string& item);
 
 /// Funzione che ritorna un intero dato una stringa da cui prelevarlo e un range
 /// di valori ammessi.
 /** Se la stringa non corrisponde ad un intero o l'intero non è nel range
  * corretto viene lanciata un'eccezione. */
-template <typename T> int checkInput(T input, int inRange, int outRange);
-template <> int checkInput<string>(string input, int inRange, int outRange);
-template <> int checkInput<int>(int input, int inRange, int outRange);
+template <typename T> const int checkInput(T input, int inRange, int outRange);
+template <> const int checkInput<const string&>(const string& input, int inRange, 
+int outRange);
+template <> const int checkInput<int>(int input, int inRange, int outRange);
 
 } // namespace gpUtils

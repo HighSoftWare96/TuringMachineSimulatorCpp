@@ -21,7 +21,7 @@ namespace mdtModels {
 class TuringMachineState {
 public:
   /// Costruttore che riceve una mdt come parametro per eseguirla sul nastro.
-  TuringMachineState(TuringMachine *machine);
+  explicit TuringMachineState(TuringMachine *machine);
   /// Distruttore vuoto: non voglio che quando si distrugga questo oggetto venga
   /// distrutta anche la mdt di riferimento.
   ~TuringMachineState();
@@ -40,24 +40,24 @@ public:
 
 private:
   /// Macchina di Turing che verrà eseguita.
-  TuringMachine *machine;
-  /// Metodo privato per verificare la presenza di una transizione data la sua
-  /// chiave statocorrente-simbolocorrente
-  /** Verifica che non siano presenti anche transizioni con l'asterisco:
-   * restituisce un puntatore alla transizione oppure nullptr se non esiste. */
-  TransitionValue const *getTransition(int currentState, char currentSymbol);
+  TuringMachine *_machine;
   /// Posizione corrente della testina.
-  int position;
+  int _position;
   /// Stato corrente della MdT.
-  int currentState;
+  int _currentState;
   /// Nastro della MdT.
   /** Il nastro è rappresentato nella classe come una mappa intero-carattere in
   cui l'intero rappresenta la posizione mentre
   il carattere il simbolo su quella posizione. */
-  std::map<int, char> *machineTape;
+  std::map<int, char> _machineTape;
+  /// Metodo privato per verificare la presenza di una transizione data la sua
+  /// chiave statocorrente-simbolocorrente
+  /** Verifica che non siano presenti anche transizioni con l'asterisco:
+   * restituisce un puntatore alla transizione oppure nullptr se non esiste. */
+  const TransitionValue *getTransition(int currentState, char currentSymbol);
   /// Restituisce una rappresentazione di una transizione effettuata dello stato
   /// attuale della MdT.
-  std::string getMachineStatus(TransitionValue const *currentTransition);
+  const std::string getMachineStatus(const TransitionValue &currentTransition);
 };
 
 } // namespace mdtModels

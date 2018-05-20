@@ -28,11 +28,10 @@ using namespace gpUtils;
 using namespace mdtModels;
 
 TEST_CASE("Array Contains", "[arrayContains]") {
-  std::vector<int> *vector = new std::vector<int>();
+  std::vector<int> vector = std::vector<int>();
   REQUIRE(arrayContains(vector, 1) == false);
-  vector->push_back(1);
+  vector.push_back(1);
   REQUIRE(arrayContains(vector, 1) == true);
-  delete vector;
 }
 
 TEST_CASE("To lower", "[toLower]") {
@@ -41,12 +40,12 @@ TEST_CASE("To lower", "[toLower]") {
 }
 
 TEST_CASE("Check input", "[checkInput]") {
-  REQUIRE(checkInput<string>("wrong", 1, 10) == 0);
-  REQUIRE(checkInput<string>("uioyg9sgdas", -10, 10) == -11);
-  REQUIRE(checkInput<string>("11", -10, 10) == -11);
-  REQUIRE(checkInput<string>("-100", -10, 10) == -11);
-  REQUIRE(checkInput<string>("-100", -200, 10) == -100);
-  REQUIRE(checkInput<string>("100", -10, 100) == 100);
+  REQUIRE(checkInput<const string&>("wrong", 1, 10) == 0);
+  REQUIRE(checkInput<const string&>("uioyg9sgdas", -10, 10) == -11);
+  REQUIRE(checkInput<const string&>("11", -10, 10) == -11);
+  REQUIRE(checkInput<const string&>("-100", -10, 10) == -11);
+  REQUIRE(checkInput<const string&>("-100", -200, 10) == -100);
+  REQUIRE(checkInput<const string&>("100", -10, 100) == 100);
   REQUIRE(checkInput<int>(11, -10, 10) == -11);
   REQUIRE(checkInput<int>(-100, -10, 10) == -11);
   REQUIRE(checkInput<int>(-100, -200, 10) == -100);
@@ -66,11 +65,11 @@ TEST_CASE("TransitionBase: Operator <", "[operator<]") {
 
 TEST_CASE("TuringMachine: addNewState", "[addNewState]") {
   TuringMachine *turingMachine = new TuringMachine();
-  REQUIRE(turingMachine->getStates()->size() == 0);
+  REQUIRE(turingMachine->getStates().size() == 0);
   REQUIRE(turingMachine->addNewState(1) == true);
   REQUIRE(turingMachine->addNewState(1) == false);
   REQUIRE(turingMachine->addNewState(2) == true);
-  REQUIRE(turingMachine->getStates()->size() != 0);
+  REQUIRE(turingMachine->getStates().size() != 0);
   delete turingMachine;
 }
 

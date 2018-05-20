@@ -22,9 +22,9 @@ public:
   /// Simbolo corrente della MdT.
   char symbol;
   /// Costruttore vuoto
-  TransitionBase();
+  explicit TransitionBase();
   /// Costruttore della chiave: imposta lo stato e il simbolo della chiave.
-  TransitionBase(int currentState, char currentSymbol);
+  explicit TransitionBase(int currentState, char currentSymbol);
   /// Distruttore vuoto.
   ~TransitionBase();
 };

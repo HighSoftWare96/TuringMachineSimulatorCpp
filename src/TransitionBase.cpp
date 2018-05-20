@@ -9,8 +9,7 @@
 
 #include "../include/TransitionBase.h"
 #include "../lib/catch.hpp"
-using namespace mdtModels;
-using namespace std;
+
 
 mdtModels::TransitionBase::TransitionBase() {}
 
