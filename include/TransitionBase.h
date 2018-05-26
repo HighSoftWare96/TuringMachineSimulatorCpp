@@ -4,10 +4,11 @@
  * @author Bertoncelli Giovanni
  * @version v1.0.1
  * @date May, 2018
- * @file TransitionKey.h
+ * @file TransitionBase.h
  */
 #pragma once
 # include "../lib/catch.hpp"
+# include "../include/State.h"
 
 namespace mdtModels {
 
@@ -18,7 +19,7 @@ namespace mdtModels {
 class TransitionBase {
 public:
   /// Stato corrente della MdT.
-  int state;
+  State<int> state;
   /// Simbolo corrente della MdT.
   char symbol;
   /// Costruttore vuoto

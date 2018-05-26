@@ -11,6 +11,7 @@
 #include "TransitionBase.h"
 #include "TransitionValue.h"
 #include "TuringMachine.h"
+#include "State.h"
 #include <iostream>
 #include <map>
 #include <string>
@@ -44,7 +45,7 @@ private:
   /// Posizione corrente della testina.
   int _position;
   /// Stato corrente della MdT.
-  int _currentState;
+  State<int> _currentState;
   /// Nastro della MdT.
   /** Il nastro è rappresentato nella classe come una mappa intero-carattere in
   cui l'intero rappresenta la posizione mentre
@@ -54,7 +55,7 @@ private:
   /// chiave statocorrente-simbolocorrente
   /** Verifica che non siano presenti anche transizioni con l'asterisco:
    * restituisce un puntatore alla transizione oppure nullptr se non esiste. */
-  const TransitionValue *getTransition(int currentState, char currentSymbol);
+  const TransitionValue *getTransition(State<int> currentState, char currentSymbol);
   /// Restituisce una rappresentazione di una transizione effettuata dello stato
   /// attuale della MdT.
   const std::string getMachineStatus(const TransitionValue &currentTransition);

@@ -8,7 +8,9 @@
  */
 
 #include "../include/TransitionValue.h"
+#include "../include/State.h"
 #include <iostream>
+
 mdtModels::TransitionValue::TransitionValue() {}
 
 mdtModels::TransitionValue::TransitionValue(int nextState, char nextSymbol,

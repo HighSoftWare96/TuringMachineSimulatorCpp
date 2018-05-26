@@ -7,6 +7,7 @@
  * @file GpUtils.cpp
  */
 #include "../include/GpUtils.h"
+#include "../include/State.h"
 #include <algorithm>
 #include <iostream>
 #include <string>

@@ -259,8 +259,8 @@ mdtModels::TuringMachineState &tape) {
   // Stampo un riepilogo per visualizzare la MdT appena creata.
   std::cout << "MdT costruita, riepilogo:\n";
   std::cout << "STATI: " << machine.printStates() << endl;
-  std::cout << "STATO INIZIALE: " << machine.getInitialState() << endl;
-  std::cout << "STATO FINALE: " << machine.getFinalState() << endl;
+  std::cout << "STATO INIZIALE: " << std::to_string(machine.getInitialState().getState()) << endl;
+  std::cout << "STATO FINALE: " << std::to_string(machine.getFinalState().getState()) << endl;
   std::cout << "TRANSIZIONI:\n" << machine.printTransitions();
   std::cout << "NASTRO: " << tape.printTape() << endl;
 }

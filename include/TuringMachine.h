@@ -10,6 +10,7 @@
 #pragma once
 #include "TransitionBase.h"
 #include "TransitionValue.h"
+#include "State.h"
 #include <map>
 #include <string>
 #include <vector>
@@ -45,7 +46,7 @@ public:
   /// stringa.
   const bool setFinalState(const std::string &finalStateToInsert);
   /// Restituisce il vettore contenente gli stati della mdt.
-  const std::vector<int> getStates();
+  const std::vector<mdtModels::State<int>> getStates();
   /// Restituisce una rappresentazione a stringa degli stati della mdt.
   const std::string printStates();
   /// Inserisce una transizione ricevuti tutti gli argomenti necessari.
@@ -56,19 +57,19 @@ public:
   /// Restituisce una rappresentazione a stringa delle transizioni della mdt.
   const std::string printTransitions();
   /// Restituisce lo stato iniziale.
-  const int getInitialState();
+  const mdtModels::State<int> getInitialState();
   /// Restituisce lo stato finale.
-  const int getFinalState();
+  const mdtModels::State<int> getFinalState();
   /// Restituisce le transizioni come mappa.
   const std::map<TransitionBase, TransitionValue> getTransitions();
 
 private:
   /// Vector contenente gli stati della MdT, dinamico.
-  std::vector<int> states;
+  std::vector<mdtModels::State<int>> states;
   /// Stato iniziale della mdt.
-  int _initialState;
+  mdtModels::State<int> _initialState;
   /// Stato finale della mdt.
-  int _finalState;
+  mdtModels::State<int> _finalState;
   /// Transizioni della macchina di turing.
   /** Mappo ogni transizione con un oggetto TransitionKey che contiene
    * stato attuale e simbolo attuale con un TransitionValue che

@@ -9,13 +9,13 @@
 
 #include "../include/TransitionBase.h"
 #include "../lib/catch.hpp"
-
+#include "../include/State.h"
 
 mdtModels::TransitionBase::TransitionBase() {}
 
 mdtModels::TransitionBase::TransitionBase(int currentState,
                                           char currentSymbol) {
-  this->state = currentState;
+  this->state = State<int>(currentState);
   this->symbol = currentSymbol;
 }
 
@@ -23,6 +23,6 @@ mdtModels::TransitionBase::~TransitionBase() {}
 
 bool mdtModels::operator<(const TransitionBase &one,
                           const TransitionBase &that) {
-  return one.state == that.state ? one.symbol < that.symbol
-                                 : one.state < that.state;
+  return (one.state.getState() == that.state.getState()) ? one.symbol < that.symbol
+                                 : one.state.getState() < that.state.getState();
 }

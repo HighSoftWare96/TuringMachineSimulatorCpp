@@ -12,11 +12,12 @@
 #include "../include/TransitionBase.h"
 #include "../include/TransitionValue.h"
 #include "../include/TuringMachineState.h"
+#include "../include/State.h"
 #include <iostream>
 #include <string>
 
 mdtModels::TuringMachine::TuringMachine() {
-  states = std::vector<int>();
+  states = std::vector<mdtModels::State<int>>();
   transitions = std::map<TransitionBase, TransitionValue>();
 }
 
@@ -25,11 +26,11 @@ mdtModels::TuringMachine::~TuringMachine() {}
 // Permette di inserire un nuovo elemento all'interno della macchina di turing.
 const bool mdtModels::TuringMachine::addNewState(int stateToInsert) {
   // Se lo stato non esiste restituisce false, altrimenti true.
-  if (gpUtils::arrayContains(states, stateToInsert))
+  if (gpUtils::arrayContains(states, mdtModels::State<int>(stateToInsert)))
     return false;
   // Solo stati positivi.
   if (stateToInsert >= 0)
-    states.push_back(stateToInsert);
+    states.push_back(State<int>(stateToInsert));
   return true;
 }
 
@@ -42,10 +43,10 @@ const bool mdtModels::TuringMachine::setInitialState(const string &rawString) {
   }
   // Controllo la validità dello stato (deve esistere).
   if (initialStateToInsert < 0 ||
-      !gpUtils::arrayContains(states, initialStateToInsert))
+      !gpUtils::arrayContains(states, mdtModels::State<int>(initialStateToInsert)))
     return false;
   else
-    _initialState = initialStateToInsert;
+    _initialState = mdtModels::State<int>(initialStateToInsert);
   return true;
 }
 
@@ -59,22 +60,22 @@ const bool mdtModels::TuringMachine::setFinalState(const string &rawString) {
 
   bool result;
   if (finalStateToInsert < 0 ||
-      !gpUtils::arrayContains(states, finalStateToInsert))
+      !gpUtils::arrayContains(states, mdtModels::State<int>(finalStateToInsert)))
     result = false;
   else {
-    _finalState = finalStateToInsert;
+    _finalState = mdtModels::State<int>(finalStateToInsert);
     result = true;
   }
   return result;
 }
 
-const std::vector<int> mdtModels::TuringMachine::getStates() { return states; }
+const std::vector<mdtModels::State<int>> mdtModels::TuringMachine::getStates() { return states; }
 
 const string mdtModels::TuringMachine::printStates() {
   string result;
-  for (int item : states) {
+  for (mdtModels::State<int> item : states) {
     result += "[";
-    result += to_string(item);
+    result += to_string(item.getState());
     result += "] ";
   }
   return result;
@@ -84,8 +85,8 @@ const bool mdtModels::TuringMachine::insertTransition(int state, char symbol,
                                                 int nextState, char nextSymbol,
                                                 const mdtModels::Movement& nextMove) {
   // Controllo la validità degli stati inseriti nella transizione.
-  if (!gpUtils::arrayContains(states, state) ||
-      !gpUtils::arrayContains(states, nextState))
+  if (!gpUtils::arrayContains(states, mdtModels::State<int>(state)) ||
+      !gpUtils::arrayContains(states, mdtModels::State<int>(nextState)))
     return false;
   // Creo una chiave della mappa.
   mdtModels::TransitionBase key = mdtModels::TransitionBase(state, symbol);
@@ -98,7 +99,7 @@ const bool mdtModels::TuringMachine::insertTransition(int state, char symbol,
 }
 
 const bool mdtModels::TuringMachine::checkStatusPresent(int state) {
-  return gpUtils::arrayContains(states, state);
+  return gpUtils::arrayContains(states, mdtModels::State<int>(state));
 }
 
 const std::string mdtModels::TuringMachine::printTransitions() {
@@ -106,11 +107,11 @@ const std::string mdtModels::TuringMachine::printTransitions() {
   for (const std::pair<mdtModels::TransitionBase, mdtModels::TransitionValue>
            &item : transitions) {
     result += "(";
-    result += std::to_string(item.first.state);
+    result += std::to_string(item.first.state.getState());
     result += ",";
     result += item.first.symbol;
     result += ") => (";
-    result += std::to_string(item.second.state);
+    result += std::to_string(item.second.state.getState());
     result += ",";
     result += item.second.symbol;
     result += ",";
@@ -122,9 +123,9 @@ const std::string mdtModels::TuringMachine::printTransitions() {
   return result;
 }
 
-const int mdtModels::TuringMachine::getInitialState() { return _initialState; }
+const mdtModels::State<int> mdtModels::TuringMachine::getInitialState() { return _initialState; }
 
-const int mdtModels::TuringMachine::getFinalState() { return _finalState; }
+const mdtModels::State<int> mdtModels::TuringMachine::getFinalState() { return _finalState; }
 
 const std::map<mdtModels::TransitionBase, mdtModels::TransitionValue>
 mdtModels::TuringMachine::getTransitions() {

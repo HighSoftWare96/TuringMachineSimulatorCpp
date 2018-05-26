@@ -73,11 +73,11 @@ void mdtModels::TuringMachineState::execute() {
 	\nPOSIZIONE sul nastro: ");
       result += to_string(_position);
       result.append("\nSTATO CORRENTE: ");
-      result += to_string(_currentState);
+      result += to_string(_currentState.getState());
       result.append(" | SIMBOLO su nastro: ");
       result += (_machineTape)[_position];
       result.append("\nPROSSIMO STATO: ");
-      result += to_string(currentTransition->state);
+      result += to_string(currentTransition->state.getState());
       result.append(" | PROSSIMO SIMBOLO: ");
       result += currentTransition->symbol;
       result.append(" | MOVIMENTO: ");
@@ -109,7 +109,7 @@ void mdtModels::TuringMachineState::execute() {
   // Riepilogo della esecuzione della MdT.
   std::cout << "Esecuzione conclusa" << endl;
   std::cout << "Nastro finale: " << printTape() << endl;
-  std::cout << "Stato n." << _currentState << ", "
+  std::cout << "Stato n." << std::to_string(_currentState.getState()) << ", "
             << ((_currentState == _machine->getFinalState()) ? " " : " non ")
             << "finale";
 }
@@ -130,7 +130,7 @@ size_t mdtModels::TuringMachineState::getTapeSize() {
 }
 
 mdtModels::TransitionValue const *
-mdtModels::TuringMachineState::getTransition(int currentState,
+mdtModels::TuringMachineState::getTransition(State<int> currentState,
                                              char currentSymbol) {
   // Puntatore alle transizioni della MdT.
   auto transitions = _machine->getTransitions();
