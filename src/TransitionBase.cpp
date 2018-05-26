@@ -21,6 +21,10 @@ mdtModels::TransitionBase::TransitionBase(int currentState,
 
 mdtModels::TransitionBase::~TransitionBase() {}
 
+const std::string mdtModels::TransitionBase::getMovementRappr() const {
+  return "";
+}
+
 bool mdtModels::operator<(const TransitionBase &one,
                           const TransitionBase &that) {
   return (one.state.getState() == that.state.getState()) ? one.symbol < that.symbol

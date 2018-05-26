@@ -28,8 +28,10 @@ public:
   explicit TransitionBase(int currentState, char currentSymbol);
   /// Distruttore vuoto.
   ~TransitionBase();
+  /// ritorna il movimento - POLIMORFISMO
+  const std::string getMovementRappr() const;
 };
-/// Overloading dell'operatore < utilizzato per implementare questa classe come
+/// Overriding dell'operatore < utilizzato per implementare questa classe come
 /// chiave di una mappa.
 /** Necessario a std::map per costruire l'albero di rappresentazione della
 mappa: ha bisogno di sapere in che ordine porre gli elementi all'internod della

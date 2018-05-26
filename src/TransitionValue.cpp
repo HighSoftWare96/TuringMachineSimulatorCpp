@@ -20,3 +20,9 @@ mdtModels::TransitionValue::TransitionValue(int nextState, char nextSymbol,
 }
 
 mdtModels::TransitionValue::~TransitionValue() {}
+
+
+const std::string mdtModels::TransitionValue::getMovementRappr() const {
+  return (nextMove == mdtModels::Movement::L ? "L"
+    : ((nextMove == mdtModels::Movement::R) ? "R" : "N"));
+}

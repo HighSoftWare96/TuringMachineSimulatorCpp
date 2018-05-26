@@ -33,5 +33,7 @@ public:
   explicit TransitionValue(int nextState, char nextSymbol, const Movement& nextMove);
   /// Distruttore vuoto.
   ~TransitionValue();
+  /// ritorna il movimento -- POLIMORFISMO
+  const std::string getMovementRappr() const;
 };
 } // namespace mdtModels

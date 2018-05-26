@@ -115,9 +115,7 @@ const std::string mdtModels::TuringMachine::printTransitions() {
     result += ",";
     result += item.second.symbol;
     result += ",";
-    result +=
-        (item.second.nextMove == mdtModels::Movement::L ? "L"
-                                   : ((item.second.nextMove == mdtModels::Movement::R) ? "R" : "N"));
+    result += item.second.getMovementRappr();
     result += ")\n";
   }
   return result;
