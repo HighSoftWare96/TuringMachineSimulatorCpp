@@ -16,7 +16,7 @@ mdtModels::TransitionValue::TransitionValue() {}
 mdtModels::TransitionValue::TransitionValue(int nextState, char nextSymbol,
                                             const mdtModels::Movement& nextMoveP)
     : mdtModels::TransitionBase(nextState, nextSymbol) {
-  this->nextMove = nextMoveP;
+  nextMove = nextMoveP;
 }
 
 mdtModels::TransitionValue::~TransitionValue() {}

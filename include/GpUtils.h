@@ -9,7 +9,6 @@
 #pragma once
 #include <string>
 #include <vector>
-using namespace std;
 
 /// Namespace che contiene tutte le definizioni general purpose del progetto.
 namespace gpUtils {
@@ -28,14 +27,14 @@ bool arrayContains(std::vector<T> &array, T item) {
 /// minuscola.
 /** Per comodità la stringa viene anche restituita oltre che modificata
  * permanentemente. */
-string toLower(string& item);
+std::string toLower(std::string& item);
 
 /// Funzione che ritorna un intero dato una stringa da cui prelevarlo e un range
 /// di valori ammessi.
 /** Se la stringa non corrisponde ad un intero o l'intero non è nel range
  * corretto viene lanciata un'eccezione. */
 template <typename T> const int checkInput(T input, int inRange, int outRange);
-template <> const int checkInput<const string&>(const string& input, int inRange, 
+template <> const int checkInput<const std::string&>(const std::string& input, int inRange, 
 int outRange);
 template <> const int checkInput<int>(int input, int inRange, int outRange);
 

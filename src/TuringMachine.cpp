@@ -34,11 +34,11 @@ const bool mdtModels::TuringMachine::addNewState(int stateToInsert) {
   return true;
 }
 
-const bool mdtModels::TuringMachine::setInitialState(const string &rawString) {
+const bool mdtModels::TuringMachine::setInitialState(const std::string &rawString) {
   int initialStateToInsert;
   // Parserizzo e controllo la stringa in input.
   if ((initialStateToInsert =
-           gpUtils::checkInput<const string &>(rawString, 0, 100)) == -1) {
+           gpUtils::checkInput<const std::string&>(rawString, 0, 100)) == -1) {
     return false;
   }
   // Controllo la validità dello stato (deve esistere).
@@ -50,11 +50,11 @@ const bool mdtModels::TuringMachine::setInitialState(const string &rawString) {
   return true;
 }
 
-const bool mdtModels::TuringMachine::setFinalState(const string &rawString) {
+const bool mdtModels::TuringMachine::setFinalState(const std::string &rawString) {
   // Come funzione precedente.
   int finalStateToInsert;
   if ((finalStateToInsert =
-           gpUtils::checkInput<const std::string &>(rawString, 0, 100)) == -1) {
+           gpUtils::checkInput<const std::string&>(rawString, 0, 100)) == -1) {
     return false;
   }
 
@@ -71,11 +71,11 @@ const bool mdtModels::TuringMachine::setFinalState(const string &rawString) {
 
 const std::vector<mdtModels::State<int>> mdtModels::TuringMachine::getStates() { return states; }
 
-const string mdtModels::TuringMachine::printStates() {
-  string result;
+const std::string mdtModels::TuringMachine::printStates() {
+  std::string result;
   for (mdtModels::State<int> item : states) {
     result += "[";
-    result += to_string(item.getState());
+    result += std::to_string(item.getState());
     result += "] ";
   }
   return result;
@@ -103,7 +103,7 @@ const bool mdtModels::TuringMachine::checkStatusPresent(int state) {
 }
 
 const std::string mdtModels::TuringMachine::printTransitions() {
-  string result = "";
+  std::string result = "";
   for (const std::pair<mdtModels::TransitionBase, mdtModels::TransitionValue>
            &item : transitions) {
     result += "(";

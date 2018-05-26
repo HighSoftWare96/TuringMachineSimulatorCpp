@@ -38,7 +38,7 @@ void mdtModels::TuringMachineState::execute() {
   std::cout << "## Esecuzione della Mdt creata ##\n"
             << "/La MdT viene eseguita partendo da SX verso DX (quindi dalla "
                "posizione 0)/"
-            << endl;
+            << std::endl;
 
   // Imposto la posizione a 0.
   _position = 0;
@@ -68,16 +68,16 @@ void mdtModels::TuringMachineState::execute() {
 
       // Restituisco una rappresentazione della transizione effettuata dalla
       // MdT.
-      string result = "";
+      std::string result = "";
       result.append("####################################################\
 	\nPOSIZIONE sul nastro: ");
-      result += to_string(_position);
+      result += std::to_string(_position);
       result.append("\nSTATO CORRENTE: ");
-      result += to_string(_currentState.getState());
+      result += std::to_string(_currentState.getState());
       result.append(" | SIMBOLO su nastro: ");
       result += (_machineTape)[_position];
       result.append("\nPROSSIMO STATO: ");
-      result += to_string(currentTransition->state.getState());
+      result += std::to_string(currentTransition->state.getState());
       result.append(" | PROSSIMO SIMBOLO: ");
       result += currentTransition->symbol;
       result.append(" | MOVIMENTO: ");
@@ -95,7 +95,7 @@ void mdtModels::TuringMachineState::execute() {
       result.append("\nNASTRO: ");
       result += printTape();
       result += "\n";
-      cout << result;
+      std::cout << result;
 
       _machineTape[this->_position] = currentTransition->symbol;
 
@@ -107,8 +107,8 @@ void mdtModels::TuringMachineState::execute() {
   };
 
   // Riepilogo della esecuzione della MdT.
-  std::cout << "Esecuzione conclusa" << endl;
-  std::cout << "Nastro finale: " << printTape() << endl;
+  std::cout << "Esecuzione conclusa" << std::endl;
+  std::cout << "Nastro finale: " << printTape() << std::endl;
   std::cout << "Stato n." << std::to_string(_currentState.getState()) << ", "
             << ((_currentState == _machine->getFinalState()) ? " " : " non ")
             << "finale";

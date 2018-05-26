@@ -25,14 +25,11 @@
 #include <string>
 #include <vector>
 
-using namespace gpUtils;
-using namespace mdtModels;
-
 TEST_CASE("Array Contains", "[arrayContains]") {
   std::vector<mdtModels::State<int>> vector = std::vector<mdtModels::State<int>>();
-  REQUIRE(arrayContains(vector, mdtModels::State<int>(1)) == false);
+  REQUIRE(gpUtils::arrayContains(vector, mdtModels::State<int>(1)) == false);
   vector.push_back(mdtModels::State<int>(1));
-  REQUIRE(arrayContains(vector, mdtModels::State<int>(1)) == true);
+  REQUIRE(gpUtils::arrayContains(vector, mdtModels::State<int>(1)) == true);
 }
 
 TEST_CASE("To lower", "[toLower]") {
@@ -96,13 +93,13 @@ TEST_CASE("TuringMachine: setFinalState", "[setFinalState]") {
 
 TEST_CASE("TuringMachine: insertTransition", "[insertTransition]") {
   mdtModels::TuringMachine *turingMachine = new mdtModels::TuringMachine();
-  REQUIRE(turingMachine->insertTransition(1, 'a', 2, 'b', Movement::L) ==
+  REQUIRE(turingMachine->insertTransition(1, 'a', 2, 'b', mdtModels::Movement::L) ==
           false);
   turingMachine->addNewState(1);
-  REQUIRE(turingMachine->insertTransition(1, 'a', 2, 'b', Movement::L) ==
+  REQUIRE(turingMachine->insertTransition(1, 'a', 2, 'b', mdtModels::Movement::L) ==
           false);
   turingMachine->addNewState(2);
-  REQUIRE(turingMachine->insertTransition(1, 'a', 2, 'b', Movement::L) == true);
+  REQUIRE(turingMachine->insertTransition(1, 'a', 2, 'b', mdtModels::Movement::L) == true);
   delete turingMachine;
 }
 

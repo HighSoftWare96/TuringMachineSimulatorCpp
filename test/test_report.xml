@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Catch name="Testing.x">
   <Group name="Testing.x">
-    <TestCase name="Array Contains" tags="[arrayContains]" filename="/mnt/c/Users/giova/Desktop/ProgettoCppBertoncelliGiovanniVR399929/TuringMachineSimulatorCpp/test/Tests.cpp" line="31">
+    <TestCase name="Array Contains" tags="[arrayContains]" filename="/mnt/c/Users/giova/Desktop/ProgettoCppBertoncelliGiovanniVR399929/TuringMachineSimulatorCpp/test/Tests.cpp" line="28">
       <OverallResult success="true"/>
     </TestCase>
-    <TestCase name="To lower" tags="[toLower]" filename="/mnt/c/Users/giova/Desktop/ProgettoCppBertoncelliGiovanniVR399929/TuringMachineSimulatorCpp/test/Tests.cpp" line="38">
+    <TestCase name="To lower" tags="[toLower]" filename="/mnt/c/Users/giova/Desktop/ProgettoCppBertoncelliGiovanniVR399929/TuringMachineSimulatorCpp/test/Tests.cpp" line="35">
       <OverallResult success="true"/>
     </TestCase>
-    <TestCase name="Check input" tags="[checkInput]" filename="/mnt/c/Users/giova/Desktop/ProgettoCppBertoncelliGiovanniVR399929/TuringMachineSimulatorCpp/test/Tests.cpp" line="43">
+    <TestCase name="Check input" tags="[checkInput]" filename="/mnt/c/Users/giova/Desktop/ProgettoCppBertoncelliGiovanniVR399929/TuringMachineSimulatorCpp/test/Tests.cpp" line="40">
       <OverallResult success="true"/>
     </TestCase>
-    <TestCase name="TransitionBase: Operator &lt;" tags="[operator&lt;]" filename="/mnt/c/Users/giova/Desktop/ProgettoCppBertoncelliGiovanniVR399929/TuringMachineSimulatorCpp/test/Tests.cpp" line="56">
+    <TestCase name="TransitionBase: Operator &lt;" tags="[operator&lt;]" filename="/mnt/c/Users/giova/Desktop/ProgettoCppBertoncelliGiovanniVR399929/TuringMachineSimulatorCpp/test/Tests.cpp" line="53">
       <OverallResult success="true"/>
     </TestCase>
-    <TestCase name="TuringMachine: addNewState" tags="[addNewState]" filename="/mnt/c/Users/giova/Desktop/ProgettoCppBertoncelliGiovanniVR399929/TuringMachineSimulatorCpp/test/Tests.cpp" line="67">
+    <TestCase name="TuringMachine: addNewState" tags="[addNewState]" filename="/mnt/c/Users/giova/Desktop/ProgettoCppBertoncelliGiovanniVR399929/TuringMachineSimulatorCpp/test/Tests.cpp" line="64">
       <OverallResult success="true"/>
     </TestCase>
-    <TestCase name="TuringMachine: setInitialState" tags="[setInitialState]" filename="/mnt/c/Users/giova/Desktop/ProgettoCppBertoncelliGiovanniVR399929/TuringMachineSimulatorCpp/test/Tests.cpp" line="77">
+    <TestCase name="TuringMachine: setInitialState" tags="[setInitialState]" filename="/mnt/c/Users/giova/Desktop/ProgettoCppBertoncelliGiovanniVR399929/TuringMachineSimulatorCpp/test/Tests.cpp" line="74">
       <OverallResult success="true"/>
     </TestCase>
-    <TestCase name="TuringMachine: setFinalState" tags="[setFinalState]" filename="/mnt/c/Users/giova/Desktop/ProgettoCppBertoncelliGiovanniVR399929/TuringMachineSimulatorCpp/test/Tests.cpp" line="87">
+    <TestCase name="TuringMachine: setFinalState" tags="[setFinalState]" filename="/mnt/c/Users/giova/Desktop/ProgettoCppBertoncelliGiovanniVR399929/TuringMachineSimulatorCpp/test/Tests.cpp" line="84">
       <OverallResult success="true"/>
     </TestCase>
-    <TestCase name="TuringMachine: insertTransition" tags="[insertTransition]" filename="/mnt/c/Users/giova/Desktop/ProgettoCppBertoncelliGiovanniVR399929/TuringMachineSimulatorCpp/test/Tests.cpp" line="97">
+    <TestCase name="TuringMachine: insertTransition" tags="[insertTransition]" filename="/mnt/c/Users/giova/Desktop/ProgettoCppBertoncelliGiovanniVR399929/TuringMachineSimulatorCpp/test/Tests.cpp" line="94">
       <OverallResult success="true"/>
     </TestCase>
-    <TestCase name="TuringMachine: checkStatusPresent" tags="[checkStatusPresent]" filename="/mnt/c/Users/giova/Desktop/ProgettoCppBertoncelliGiovanniVR399929/TuringMachineSimulatorCpp/test/Tests.cpp" line="109">
+    <TestCase name="TuringMachine: checkStatusPresent" tags="[checkStatusPresent]" filename="/mnt/c/Users/giova/Desktop/ProgettoCppBertoncelliGiovanniVR399929/TuringMachineSimulatorCpp/test/Tests.cpp" line="106">
       <OverallResult success="true"/>
     </TestCase>
-    <TestCase name="TuringMachine: getInitialState" tags="[getInitialState]" filename="/mnt/c/Users/giova/Desktop/ProgettoCppBertoncelliGiovanniVR399929/TuringMachineSimulatorCpp/test/Tests.cpp" line="117">
+    <TestCase name="TuringMachine: getInitialState" tags="[getInitialState]" filename="/mnt/c/Users/giova/Desktop/ProgettoCppBertoncelliGiovanniVR399929/TuringMachineSimulatorCpp/test/Tests.cpp" line="114">
       <OverallResult success="true"/>
     </TestCase>
-    <TestCase name="TuringMachineState: addSymbol" tags="[addSymbol]" filename="/mnt/c/Users/giova/Desktop/ProgettoCppBertoncelliGiovanniVR399929/TuringMachineSimulatorCpp/test/Tests.cpp" line="127">
+    <TestCase name="TuringMachineState: addSymbol" tags="[addSymbol]" filename="/mnt/c/Users/giova/Desktop/ProgettoCppBertoncelliGiovanniVR399929/TuringMachineSimulatorCpp/test/Tests.cpp" line="124">
       <OverallResult success="true"/>
     </TestCase>
     <OverallResults successes="39" failures="0" expectedFailures="0"/>

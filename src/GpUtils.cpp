@@ -13,12 +13,12 @@
 #include <string>
 #include <vector>
 
-string gpUtils::toLower(string& item) {
+std::string gpUtils::toLower(std::string& item) {
   std::transform(item.begin(), item.end(), item.begin(), ::tolower);
   return item;
 }
 
-template <> const int gpUtils::checkInput<const string&>(const string& input, 
+template <> const int gpUtils::checkInput<const std::string&>(const std::string& input, 
 int inRange, int outRange) {
   int result;
   try { // non posso NON fare uso della gestione delle eccezioni 
