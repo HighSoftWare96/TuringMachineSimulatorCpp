@@ -21,7 +21,10 @@ mdtModels::TuringMachine::TuringMachine() {
   transitions = std::map<TransitionBase, TransitionValue>();
 }
 
-mdtModels::TuringMachine::~TuringMachine() {}
+mdtModels::TuringMachine::~TuringMachine() {
+  delete _initialState;
+  delete _finalState;
+}
 
 // Permette di inserire un nuovo elemento all'interno della macchina di turing.
 const bool mdtModels::TuringMachine::addNewState(int stateToInsert) {
@@ -48,7 +51,7 @@ mdtModels::TuringMachine::setInitialState(const std::string &rawString) {
                               mdtModels::State<int>(initialStateToInsert)))
     return false;
   else
-    _initialState = mdtModels::State<int>(initialStateToInsert);
+    _initialState = new mdtModels::State<int>(initialStateToInsert);
   return true;
 }
 
@@ -67,7 +70,7 @@ mdtModels::TuringMachine::setFinalState(const std::string &rawString) {
                               mdtModels::State<int>(finalStateToInsert)))
     result = false;
   else {
-    _finalState = mdtModels::State<int>(finalStateToInsert);
+    _finalState = new mdtModels::State<int>(finalStateToInsert);
     result = true;
   }
   return result;
@@ -108,31 +111,31 @@ const bool mdtModels::TuringMachine::checkStatusPresent(int state) {
   return gpUtils::arrayContains(states, mdtModels::State<int>(state));
 }
 
-const std::string mdtModels::TuringMachine::printTransitions() {
-  std::string result = "";
+const std::string &mdtModels::TuringMachine::printTransitions() {
+  std::string *result = new std::string();
   for (const std::pair<mdtModels::TransitionBase, mdtModels::TransitionValue>
            &item : transitions) {
-    result += "(";
-    result += std::to_string(item.first.state.getState());
-    result += ",";
-    result += item.first.symbol;
-    result += ") => (";
-    result += std::to_string(item.second.state.getState());
-    result += ",";
-    result += item.second.symbol;
-    result += ",";
-    result += item.second.getMovementRappr();
-    result += ")\n";
+    *result += "(";
+    *result += std::to_string(item.first.state.getState());
+    *result += ",";
+    *result += item.first.symbol;
+    *result += ") => (";
+    *result += std::to_string(item.second.state.getState());
+    *result += ",";
+    *result += item.second.symbol;
+    *result += ",";
+    *result += item.second.getMovementRappr();
+    *result += ")\n";
   }
-  return result;
+  return *result;
 }
 
-const mdtModels::State<int> mdtModels::TuringMachine::getInitialState() {
-  return _initialState;
+const mdtModels::State<int> &mdtModels::TuringMachine::getInitialState() {
+  return *_initialState;
 }
 
-const mdtModels::State<int> mdtModels::TuringMachine::getFinalState() {
-  return _finalState;
+const mdtModels::State<int> &mdtModels::TuringMachine::getFinalState() {
+  return *_finalState;
 }
 
 const std::map<mdtModels::TransitionBase, mdtModels::TransitionValue>

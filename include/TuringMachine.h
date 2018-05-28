@@ -55,11 +55,11 @@ public:
   /// Controlla la presenza di uno stato nella mdt.
   const bool checkStatusPresent(int state);
   /// Restituisce una rappresentazione a stringa delle transizioni della mdt.
-  const std::string printTransitions();
+  const std::string &printTransitions();
   /// Restituisce lo stato iniziale.
-  const mdtModels::State<int> getInitialState();
+  const mdtModels::State<int> &getInitialState();
   /// Restituisce lo stato finale.
-  const mdtModels::State<int> getFinalState();
+  const mdtModels::State<int> &getFinalState();
   /// Restituisce le transizioni come mappa.
   const std::map<TransitionBase, TransitionValue> getTransitions();
 
@@ -67,9 +67,9 @@ private:
   /// Vector contenente gli stati della MdT, dinamico.
   std::vector<mdtModels::State<int>> states;
   /// Stato iniziale della mdt.
-  mdtModels::State<int> _initialState;
+  mdtModels::State<int> *_initialState = nullptr;
   /// Stato finale della mdt.
-  mdtModels::State<int> _finalState;
+  mdtModels::State<int> *_finalState = nullptr;
   /// Transizioni della macchina di turing.
   /** Mappo ogni transizione con un oggetto TransitionKey che contiene
    * stato attuale e simbolo attuale con un TransitionValue che

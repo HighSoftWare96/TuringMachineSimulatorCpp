@@ -21,9 +21,7 @@ mdtModels::TransitionBase::TransitionBase(int currentState,
 
 mdtModels::TransitionBase::~TransitionBase() {}
 
-const std::string mdtModels::TransitionBase::getMovementRappr() const {
-  return "";
-}
+const std::string mdtModels::TransitionBase::getMovementRappr() { return ""; }
 
 bool mdtModels::operator<(const TransitionBase &one,
                           const TransitionBase &that) {

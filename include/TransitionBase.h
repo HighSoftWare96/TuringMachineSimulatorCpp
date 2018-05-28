@@ -18,7 +18,7 @@ namespace mdtModels {
 class TransitionBase {
 public:
   /// Stato corrente della MdT.
-  State<int> *state;
+  State<int> state;
   /// Simbolo corrente della MdT.
   char symbol;
   /// Costruttore vuoto

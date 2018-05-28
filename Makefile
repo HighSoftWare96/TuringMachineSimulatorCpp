@@ -252,6 +252,33 @@ src/GpUtils.cpp.s:
 	$(MAKE) -f CMakeFiles/TuringSimulatorOut.x.dir/build.make CMakeFiles/TuringSimulatorOut.x.dir/src/GpUtils.cpp.s
 .PHONY : src/GpUtils.cpp.s
 
+src/PromptRequests.o: src/PromptRequests.cpp.o
+
+.PHONY : src/PromptRequests.o
+
+# target to build an object file
+src/PromptRequests.cpp.o:
+	$(MAKE) -f CMakeFiles/TuringSimulatorOut.x.dir/build.make CMakeFiles/TuringSimulatorOut.x.dir/src/PromptRequests.cpp.o
+.PHONY : src/PromptRequests.cpp.o
+
+src/PromptRequests.i: src/PromptRequests.cpp.i
+
+.PHONY : src/PromptRequests.i
+
+# target to preprocess a source file
+src/PromptRequests.cpp.i:
+	$(MAKE) -f CMakeFiles/TuringSimulatorOut.x.dir/build.make CMakeFiles/TuringSimulatorOut.x.dir/src/PromptRequests.cpp.i
+.PHONY : src/PromptRequests.cpp.i
+
+src/PromptRequests.s: src/PromptRequests.cpp.s
+
+.PHONY : src/PromptRequests.s
+
+# target to generate assembly for a file
+src/PromptRequests.cpp.s:
+	$(MAKE) -f CMakeFiles/TuringSimulatorOut.x.dir/build.make CMakeFiles/TuringSimulatorOut.x.dir/src/PromptRequests.cpp.s
+.PHONY : src/PromptRequests.cpp.s
+
 src/State.o: src/State.cpp.o
 
 .PHONY : src/State.o
@@ -461,6 +488,9 @@ help:
 	@echo "... src/GpUtils.o"
 	@echo "... src/GpUtils.i"
 	@echo "... src/GpUtils.s"
+	@echo "... src/PromptRequests.o"
+	@echo "... src/PromptRequests.i"
+	@echo "... src/PromptRequests.s"
 	@echo "... src/State.o"
 	@echo "... src/State.i"
 	@echo "... src/State.s"
