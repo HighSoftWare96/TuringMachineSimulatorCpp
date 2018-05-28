@@ -18,7 +18,7 @@ namespace mdtModels {
 class TransitionBase {
 public:
   /// Stato corrente della MdT.
-  State<int> state;
+  State<int> *state;
   /// Simbolo corrente della MdT.
   char symbol;
   /// Costruttore vuoto
@@ -28,7 +28,7 @@ public:
   /// Distruttore vuoto.
   ~TransitionBase();
   /// ritorna il movimento - POLIMORFISMO
-  const std::string getMovementRappr() const;
+  virtual const std::string getMovementRappr();
 };
 /// Overriding dell'operatore < utilizzato per implementare questa classe come
 /// chiave di una mappa.
