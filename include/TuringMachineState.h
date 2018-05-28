@@ -8,10 +8,10 @@
  */
 
 #pragma once
+#include "State.h"
 #include "TransitionBase.h"
 #include "TransitionValue.h"
 #include "TuringMachine.h"
-#include "State.h"
 #include <iostream>
 #include <map>
 #include <string>
@@ -55,7 +55,8 @@ private:
   /// chiave statocorrente-simbolocorrente
   /** Verifica che non siano presenti anche transizioni con l'asterisco:
    * restituisce un puntatore alla transizione oppure nullptr se non esiste. */
-  const TransitionValue *getTransition(State<int> currentState, char currentSymbol);
+  const TransitionValue *getTransition(State<int> currentState,
+                                       char currentSymbol);
   /// Restituisce una rappresentazione di una transizione effettuata dello stato
   /// attuale della MdT.
   const std::string getMachineStatus(const TransitionValue &currentTransition);

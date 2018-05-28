@@ -13,16 +13,16 @@
 
 mdtModels::TransitionValue::TransitionValue() {}
 
-mdtModels::TransitionValue::TransitionValue(int nextState, char nextSymbol,
-                                            const mdtModels::Movement& nextMoveP)
+mdtModels::TransitionValue::TransitionValue(
+    int nextState, char nextSymbol, const mdtModels::Movement &nextMoveP)
     : mdtModels::TransitionBase(nextState, nextSymbol) {
   nextMove = nextMoveP;
 }
 
 mdtModels::TransitionValue::~TransitionValue() {}
 
-
 const std::string mdtModels::TransitionValue::getMovementRappr() const {
-  return (nextMove == mdtModels::Movement::L ? "L"
-    : ((nextMove == mdtModels::Movement::R) ? "R" : "N"));
+  return (nextMove == mdtModels::Movement::L
+              ? "L"
+              : ((nextMove == mdtModels::Movement::R) ? "R" : "N"));
 }

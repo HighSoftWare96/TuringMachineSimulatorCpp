@@ -30,7 +30,8 @@ public:
   explicit TransitionValue();
   /// Costruttore che riceve tutte i dati da assegnare alle proprietà
   /// dell'oggetto stesso.
-  explicit TransitionValue(int nextState, char nextSymbol, const Movement& nextMove);
+  explicit TransitionValue(int nextState, char nextSymbol,
+                           const Movement &nextMove);
   /// Distruttore vuoto.
   ~TransitionValue();
   /// ritorna il movimento -- POLIMORFISMO

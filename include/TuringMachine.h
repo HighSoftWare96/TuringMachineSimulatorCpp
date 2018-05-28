@@ -8,9 +8,9 @@
  */
 
 #pragma once
+#include "State.h"
 #include "TransitionBase.h"
 #include "TransitionValue.h"
-#include "State.h"
 #include <map>
 #include <string>
 #include <vector>

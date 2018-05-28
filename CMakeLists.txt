@@ -49,14 +49,13 @@ ADD_CUSTOM_TARGET(doc
 )
 
 ADD_CUSTOM_TARGET(rm
-COMMAND rm -rf Makefile
 COMMAND rm -rf *.o 
 COMMAND rm -rf ./CMakeFiles
 COMMAND rm -rf CMakeCache.txt
 COMMAND rm -rf cmake_install.cmake
 COMMAND rm -rf bin/TuringSimulatorOut.x
 COMMAND rm -rf bin/Testing.x
-COMMAND rm -rf doc/html
+COMMAND rm -rf doc/*
 COMMAND rm -rf ./Testing
 COMMAND rm -rf *.json *.cmake
 COMMENT "Clear CMAKE, DOC and BUILD assets")
@@ -73,13 +72,13 @@ ADD_CUSTOM_TARGET(stats
 
 ADD_CUSTOM_TARGET(valgrind
     COMMAND valgrind ./bin/TuringSimulatorOut.x
-    COMMENT "Clang-formatting code documents"
+    COMMENT "Valgrind..."
 )
 
 ADD_CUSTOM_TARGET(format
     COMMAND clang-format -style=llvm -dump-config > .clang-format
-    COMMAND clang-format ./src/*.cpp
-    COMMAND clang-format ./include/*.h
+    COMMAND clang-format -i ./src/*.cpp
+    COMMAND clang-format -i ./include/*.h
     COMMENT "Clang-formatting code documents"
 )
 

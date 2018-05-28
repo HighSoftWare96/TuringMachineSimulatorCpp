@@ -7,11 +7,10 @@
  * @file TransitionBase.h
  */
 #pragma once
-# include "../lib/catch.hpp"
-# include "../include/State.h"
+#include "../include/State.h"
+#include "../lib/catch.hpp"
 
 namespace mdtModels {
-
 /// Classe che rappresenta la chiave di una transizione.
 /** La classe è composta da due proprietà pubbliche: lo stato e il simbolo che
    rappresentano lo stato corrente e il simbolo sulla posizione corrente del

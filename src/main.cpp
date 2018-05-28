@@ -20,18 +20,16 @@
 #include <iostream>
 #include <string>
 
-
-
 // Funzione per mostrare a video un menu e un percorso per costruire una nuova
 // MdT interattivamente.
-void machineMenu(mdtModels::TuringMachine &machine, 
-mdtModels::TuringMachineState &tape);
+void machineMenu(mdtModels::TuringMachine &machine,
+                 mdtModels::TuringMachineState &tape);
 // Funzione per mostrare a video un percorso separato per il cambio del nastro
 // della MdT.
 void writeTape(mdtModels::TuringMachineState &tape);
 
 // Main del programma: entry point.
-int main() {  
+int main() {
   int choice = 0;
   std::cout << "== SIMULATORE MACCHINE DI TURING == " << std::endl;
 
@@ -46,13 +44,15 @@ int main() {
     std::string rawChoice;
 
     // Menu e richiesta delle opzioni da scegliere.
-    std::cout << "\nOpzioni disponibili: " << std::endl
-         << "  1) Nuova macchina di Turing\n  2) Esegui macchina di Turing\n  "
-            "3) Cambia nastro\n  4) Esci\n:> ";
+    std::cout
+        << "\nOpzioni disponibili: " << std::endl
+        << "  1) Nuova macchina di Turing\n  2) Esegui macchina di Turing\n  "
+           "3) Cambia nastro\n  4) Esci\n:> ";
     std::cin >> rawChoice;
 
     // Input scorretti (non nel range e non numeri) generano minRange - 1.
-    if ((choice = gpUtils::checkInput<const std::string&>(rawChoice, 1, 4)) == 0) {
+    if ((choice = gpUtils::checkInput<const std::string &>(rawChoice, 1, 4)) ==
+        0) {
       choice = 0;
       std::cout << "Input scorretto!\n";
       // Continue.
@@ -71,7 +71,8 @@ int main() {
       // Se non è ancora stata creata una delle due allora avviso l'utente che
       // non può eseguire la MdT.
       if (machine.getStates().size() == 0 || tape.getTapeSize() == 0)
-        std::cout << "Prima di eseguire una MdT e' necessario crearla!" << std::endl;
+        std::cout << "Prima di eseguire una MdT e' necessario crearla!"
+                  << std::endl;
       else
         // Altrimenti la eseguo.
         tape.execute();
@@ -89,15 +90,14 @@ int main() {
   return 0;
 }
 
-void machineMenu(mdtModels::TuringMachine &machine, 
-mdtModels::TuringMachineState &tape) {
+void machineMenu(mdtModels::TuringMachine &machine,
+                 mdtModels::TuringMachineState &tape) {
   // RAW input dell'utente.
   std::string input = "";
   // Input intero convertito dell'utente.
   int intInput = 0;
 
-  std::cout << "Inserisci gli stati della MdT"
-       << std::endl;
+  std::cout << "Inserisci gli stati della MdT" << std::endl;
 
   // Continuo a chiedere finchè non c'è almeno un elemento negli stati o
   // inserisce stati > 0.
@@ -106,7 +106,8 @@ mdtModels::TuringMachineState &tape) {
     std::cout << "#" << machine.getStates().size() << ": ";
     std::cin >> input;
 
-    if ((intInput = gpUtils::checkInput<const std::string&>(input, -1, 100)) == -2) {
+    if ((intInput = gpUtils::checkInput<const std::string &>(input, -1, 100)) ==
+        -2) {
       intInput = 100;
       std::cout << "Input non valido..." << std::endl;
       continue;
@@ -126,13 +127,14 @@ mdtModels::TuringMachineState &tape) {
   // Inserisce uno stato iniziale, se è false allora non è tra quelli presenti.
   do {
     std::cout << "Inserisci lo stato iniziale (che corrisponda ad uno dei "
-            "presenti): ";
+                 "presenti): ";
     std::cin >> input;
   } while (!machine.setInitialState(input));
 
   // Inserisce uno stato finale, se è false allora non è tra quelli presenti.
   do {
-   std::cout << "Inserisci lo stato finale (che corrisponda ad uno dei presenti):";
+    std::cout
+        << "Inserisci lo stato finale (che corrisponda ad uno dei presenti):";
     std::cin >> input;
   } while (!machine.setFinalState(input));
 
@@ -143,7 +145,8 @@ mdtModels::TuringMachineState &tape) {
   int stateNToInsert;
   char symbolNToInsert;
   mdtModels::Movement moveNToInsert;
-  // Rappresentazione a std::stringa del movimento (enum non ben rappresentabile).
+  // Rappresentazione a std::stringa del movimento (enum non ben
+  // rappresentabile).
   std::string moveNToInsertString;
 
   int counter = 0;
@@ -155,7 +158,8 @@ mdtModels::TuringMachineState &tape) {
     std::cout << "Inserisci stato: ";
     std::cin >> input;
 
-    if ((stateToInsert = gpUtils::checkInput<const std::string&>(input, 0, 100)) == -1) {
+    if ((stateToInsert =
+             gpUtils::checkInput<const std::string &>(input, 0, 100)) == -1) {
       std::cout << "Input non valido..." << std::endl;
       input = "";
       continue;
@@ -171,7 +175,8 @@ mdtModels::TuringMachineState &tape) {
     std::cin >> input;
     if (input.length() > 1) {
       input = "";
-      std::cout << "Input non valido... Ammessi solo simboli da 1 carattere" << std::endl;
+      std::cout << "Input non valido... Ammessi solo simboli da 1 carattere"
+                << std::endl;
       continue;
     }
 
@@ -182,7 +187,8 @@ mdtModels::TuringMachineState &tape) {
     std::cout << "Inserisci lo stato conseguente: ";
     std::cin >> input;
 
-    if ((stateNToInsert = gpUtils::checkInput<const std::string&>(input, 0, 100)) == -1) {
+    if ((stateNToInsert =
+             gpUtils::checkInput<const std::string &>(input, 0, 100)) == -1) {
       input = "";
       std::cout << "Input non valido..." << std::endl;
       continue;
@@ -199,7 +205,7 @@ mdtModels::TuringMachineState &tape) {
     std::cin >> input;
     if (input.length() > 1) {
       std::cout << "Input non valido... Ammessi solo simboli da 1 carattere."
-           << std::endl;
+                << std::endl;
       input = "";
       continue;
     }
@@ -207,7 +213,8 @@ mdtModels::TuringMachineState &tape) {
     symbolNToInsert = input.at(0);
 
     // Richiedo il movimento della testina corrispondente
-    std::cout << "Inserisci il movimento da fare (L/l left, R/r right, N/n none): ";
+    std::cout
+        << "Inserisci il movimento da fare (L/l left, R/r right, N/n none): ";
     std::cin >> input;
     // Tutto minuscolo.
     input = gpUtils::toLower(input);
@@ -215,7 +222,8 @@ mdtModels::TuringMachineState &tape) {
     // Controllo la validità dell'input, (solo l r n o maiuscoli
     // corrispondenti).
     if (input.length() > 1 || (input != "l" && input != "n" && input != "r")) {
-      std::cout << "Input non valido... Ammessi solo L/l, R/r, N/n!" << std::endl;
+      std::cout << "Input non valido... Ammessi solo L/l, R/r, N/n!"
+                << std::endl;
       input = "";
       continue;
     }
@@ -239,9 +247,10 @@ mdtModels::TuringMachineState &tape) {
 
     // Restituisco una rappresentazione a schermo della transizione appena
     // creata e inserita.
-    std::cout << "Transazione (" << stateToInsert << "," << symbolToInsert << ")";
+    std::cout << "Transazione (" << stateToInsert << "," << symbolToInsert
+              << ")";
     std::cout << "=> (" << stateNToInsert << "," << symbolNToInsert << ","
-         << moveNToInsertString << ")" << std::endl;
+              << moveNToInsertString << ")" << std::endl;
 
     // Chiedo conferma per l'inserimento di un nuovo simbolo.
     std::cout << "Continuare? (s/n): ";
@@ -259,8 +268,11 @@ mdtModels::TuringMachineState &tape) {
   // Stampo un riepilogo per visualizzare la MdT appena creata.
   std::cout << "MdT costruita, riepilogo:\n";
   std::cout << "STATI: " << machine.printStates() << std::endl;
-  std::cout << "STATO INIZIALE: " << std::to_string(machine.getInitialState().getState()) << std::endl;
-  std::cout << "STATO FINALE: " << std::to_string(machine.getFinalState().getState()) << std::endl;
+  std::cout << "STATO INIZIALE: "
+            << std::to_string(machine.getInitialState().getState())
+            << std::endl;
+  std::cout << "STATO FINALE: "
+            << std::to_string(machine.getFinalState().getState()) << std::endl;
   std::cout << "TRANSIZIONI:\n" << machine.printTransitions();
   std::cout << "NASTRO: " << tape.printTape() << std::endl;
 }
@@ -273,7 +285,8 @@ void writeTape(mdtModels::TuringMachineState &tape) {
   std::string input = "";
   int counter = 0;
 
-  std::cout << "Inserisci i simboli del nastro iniziale: (-1 per terminare)" << std::endl;
+  std::cout << "Inserisci i simboli del nastro iniziale: (-1 per terminare)"
+            << std::endl;
 
   // Finchè non mette il simbolo di uscita -1 o il nastro non è vuoto..
   do {
@@ -281,7 +294,8 @@ void writeTape(mdtModels::TuringMachineState &tape) {
     std::cin >> input;
     // Richiedo il simbolo da inserire nel nastro e verifico la validità-
     if (input.length() > 1 && input != "-1") {
-      std::cout << "Input non valido... Ammessi solo simboli da 1 carattere" << std::endl;
+      std::cout << "Input non valido... Ammessi solo simboli da 1 carattere"
+                << std::endl;
       continue;
     }
 

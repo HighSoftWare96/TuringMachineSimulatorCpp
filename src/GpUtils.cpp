@@ -13,16 +13,17 @@
 #include <string>
 #include <vector>
 
-std::string gpUtils::toLower(std::string& item) {
+std::string gpUtils::toLower(std::string &item) {
   std::transform(item.begin(), item.end(), item.begin(), ::tolower);
   return item;
 }
 
-template <> const int gpUtils::checkInput<const std::string&>(const std::string& input, 
-int inRange, int outRange) {
+template <>
+const int gpUtils::checkInput<const std::string &>(const std::string &input,
+                                                   int inRange, int outRange) {
   int result;
-  try { // non posso NON fare uso della gestione delle eccezioni 
-  // qui se voglio usare la funzione stoi().
+  try { // non posso NON fare uso della gestione delle eccezioni
+        // qui se voglio usare la funzione stoi().
     result = std::stoi(input);
   } catch (std::invalid_argument) {
     return inRange - 1;
@@ -33,7 +34,8 @@ int inRange, int outRange) {
   return result;
 }
 
-template <> const int gpUtils::checkInput<int>(int input, int inRange, int outRange) {
+template <>
+const int gpUtils::checkInput<int>(int input, int inRange, int outRange) {
   if (input < inRange || input > outRange)
     return inRange - 1;
   return input;

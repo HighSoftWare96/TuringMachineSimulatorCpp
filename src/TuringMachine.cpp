@@ -9,10 +9,10 @@
 
 #include "../include/TuringMachine.h"
 #include "../include/GpUtils.h"
+#include "../include/State.h"
 #include "../include/TransitionBase.h"
 #include "../include/TransitionValue.h"
 #include "../include/TuringMachineState.h"
-#include "../include/State.h"
 #include <iostream>
 #include <string>
 
@@ -34,33 +34,37 @@ const bool mdtModels::TuringMachine::addNewState(int stateToInsert) {
   return true;
 }
 
-const bool mdtModels::TuringMachine::setInitialState(const std::string &rawString) {
+const bool
+mdtModels::TuringMachine::setInitialState(const std::string &rawString) {
   int initialStateToInsert;
   // Parserizzo e controllo la stringa in input.
   if ((initialStateToInsert =
-           gpUtils::checkInput<const std::string&>(rawString, 0, 100)) == -1) {
+           gpUtils::checkInput<const std::string &>(rawString, 0, 100)) == -1) {
     return false;
   }
   // Controllo la validità dello stato (deve esistere).
   if (initialStateToInsert < 0 ||
-      !gpUtils::arrayContains(states, mdtModels::State<int>(initialStateToInsert)))
+      !gpUtils::arrayContains(states,
+                              mdtModels::State<int>(initialStateToInsert)))
     return false;
   else
     _initialState = mdtModels::State<int>(initialStateToInsert);
   return true;
 }
 
-const bool mdtModels::TuringMachine::setFinalState(const std::string &rawString) {
+const bool
+mdtModels::TuringMachine::setFinalState(const std::string &rawString) {
   // Come funzione precedente.
   int finalStateToInsert;
   if ((finalStateToInsert =
-           gpUtils::checkInput<const std::string&>(rawString, 0, 100)) == -1) {
+           gpUtils::checkInput<const std::string &>(rawString, 0, 100)) == -1) {
     return false;
   }
 
   bool result;
   if (finalStateToInsert < 0 ||
-      !gpUtils::arrayContains(states, mdtModels::State<int>(finalStateToInsert)))
+      !gpUtils::arrayContains(states,
+                              mdtModels::State<int>(finalStateToInsert)))
     result = false;
   else {
     _finalState = mdtModels::State<int>(finalStateToInsert);
@@ -69,7 +73,9 @@ const bool mdtModels::TuringMachine::setFinalState(const std::string &rawString)
   return result;
 }
 
-const std::vector<mdtModels::State<int>> mdtModels::TuringMachine::getStates() { return states; }
+const std::vector<mdtModels::State<int>> mdtModels::TuringMachine::getStates() {
+  return states;
+}
 
 const std::string mdtModels::TuringMachine::printStates() {
   std::string result;
@@ -81,9 +87,9 @@ const std::string mdtModels::TuringMachine::printStates() {
   return result;
 }
 
-const bool mdtModels::TuringMachine::insertTransition(int state, char symbol,
-                                                int nextState, char nextSymbol,
-                                                const mdtModels::Movement& nextMove) {
+const bool mdtModels::TuringMachine::insertTransition(
+    int state, char symbol, int nextState, char nextSymbol,
+    const mdtModels::Movement &nextMove) {
   // Controllo la validità degli stati inseriti nella transizione.
   if (!gpUtils::arrayContains(states, mdtModels::State<int>(state)) ||
       !gpUtils::arrayContains(states, mdtModels::State<int>(nextState)))
@@ -121,9 +127,13 @@ const std::string mdtModels::TuringMachine::printTransitions() {
   return result;
 }
 
-const mdtModels::State<int> mdtModels::TuringMachine::getInitialState() { return _initialState; }
+const mdtModels::State<int> mdtModels::TuringMachine::getInitialState() {
+  return _initialState;
+}
 
-const mdtModels::State<int> mdtModels::TuringMachine::getFinalState() { return _finalState; }
+const mdtModels::State<int> mdtModels::TuringMachine::getFinalState() {
+  return _finalState;
+}
 
 const std::map<mdtModels::TransitionBase, mdtModels::TransitionValue>
 mdtModels::TuringMachine::getTransitions() {
