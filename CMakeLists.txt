@@ -43,7 +43,7 @@ ADD_COMPILE_OPTIONS("-Wextra")
 ADD_COMPILE_OPTIONS("-pedantic")
 
 ADD_CUSTOM_TARGET(doc
-    COMMAND doxygen doxyfile.cfg 
+    COMMAND doxygen ${PROJECT_SOURCE_DIR}/doxyfile.cfg 
     COMMENT "Documentation generation"
 )
 
@@ -85,5 +85,5 @@ ENABLE_TESTING()
 
 ADD_TEST(NAME AllTests
     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/test
-    COMMAND ${PROJECT_SOURCE_DIR}/Testing.x -r xml -o test_report.xml
+    COMMAND ${PROJECT_SOURCE_DIR}/bin/Testing.x -r xml -o ${PROJECT_SOURCE_DIR}/test/test_report.xml
 )
