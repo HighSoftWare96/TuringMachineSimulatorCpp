@@ -52,6 +52,7 @@ COMMAND rm -rf ${PROJECT_SOURCE_DIR}/build/*
 COMMAND rm -rf ${PROJECT_SOURCE_DIR}/bin/TuringSimulatorOut.x
 COMMAND rm -rf ${PROJECT_SOURCE_DIR}/bin/Testing.x
 COMMAND rm -rf ${PROJECT_SOURCE_DIR}/doc/*
+COMMAND rm -rf ${PROJECT_SOURCE_DIR}/build/.clang-format
 COMMENT "Clear CMAKE, DOC and BUILD assets")
 
 INSTALL (
