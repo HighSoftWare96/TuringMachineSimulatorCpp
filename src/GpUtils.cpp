@@ -20,8 +20,8 @@ std::string toLower(std::string &item) {
 }
 
 template <>
-const int checkInput<const std::string &>(const std::string &input,
-                                                   int inRange, int outRange) {
+const int checkInput<const std::string &>(const std::string &input, int inRange,
+                                          int outRange) {
   int result;
   try { // non posso NON fare uso della gestione delle eccezioni
         // qui se voglio usare la funzione stoi().
@@ -35,10 +35,7 @@ const int checkInput<const std::string &>(const std::string &input,
   return result;
 }
 
-template <>
-const int checkInput<int>(int input, int inRange, int outRange) {
-  if (input < inRange || input > outRange)
-    return inRange - 1;
-  return input;
+template <> const int checkInput<int>(int input, int inRange, int outRange) {
+  return gpUtils::compareIntegers(input, inRange, outRange);
 }
 }

@@ -42,6 +42,14 @@ template <typename T> const int checkInput(T input, int inRange, int outRange);
 template <>
 const int checkInput<const std::string &>(const std::string &input, int inRange,
                                           int outRange);
+
+/// Espressione di valutazione di due interi in un intervallo - CONSTEXPR
+constexpr const int compareIntegers(const int input, const int inRange,
+                                    const int outRange) {
+  if (input < inRange || input > outRange)
+    return inRange - 1;
+  return input;
+}
 template <> const int checkInput<int>(int input, int inRange, int outRange);
 
 } // namespace gpUtils
