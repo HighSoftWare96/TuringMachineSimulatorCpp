@@ -4,11 +4,11 @@
  * @author Bertoncelli Giovanni
  * @version v1.0.1
  * @date May, 2018
- * @file TransitionBase.h
+ * @file TransitionBase.hpp
  */
 #pragma once
-#include "../include/State.h"
-#include "../lib/catch.hpp"
+#include "../include/State.hpp"
+#include <string>
 
 namespace mdtModels {
 /// Classe che rappresenta la chiave di una transizione.

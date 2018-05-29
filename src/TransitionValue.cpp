@@ -7,22 +7,24 @@
  * @file TransitionValue.cpp
  */
 
-#include "../include/TransitionValue.h"
-#include "../include/State.h"
+#include "../include/TransitionValue.hpp"
+#include "../include/State.hpp"
 #include <iostream>
 
-mdtModels::TransitionValue::TransitionValue() {}
+namespace mdtModels {
+TransitionValue::TransitionValue() {}
 
-mdtModels::TransitionValue::TransitionValue(
-    int nextState, char nextSymbol, const mdtModels::Movement &nextMoveP)
+TransitionValue::TransitionValue(int nextState, char nextSymbol,
+                                 const mdtModels::Movement &nextMoveP)
     : mdtModels::TransitionBase(nextState, nextSymbol) {
   nextMove = nextMoveP;
 }
 
-mdtModels::TransitionValue::~TransitionValue() {}
+TransitionValue::~TransitionValue() {}
 
-const std::string mdtModels::TransitionValue::getMovementRappr() const {
+const std::string TransitionValue::getMovementRappr() const {
   return (nextMove == mdtModels::Movement::L
               ? "L"
               : ((nextMove == mdtModels::Movement::R) ? "R" : "N"));
 }
+} // namespace mdtModels

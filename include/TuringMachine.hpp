@@ -4,13 +4,13 @@
  * @author Bertoncelli Giovanni
  * @version v1.0.1
  * @date May, 2018
- * @file TuringMachine.h
+ * @file TuringMachine.hpp
  */
 
 #pragma once
-#include "State.h"
-#include "TransitionBase.h"
-#include "TransitionValue.h"
+#include "State.hpp"
+#include "TransitionBase.hpp"
+#include "TransitionValue.hpp"
 #include <map>
 #include <string>
 #include <vector>

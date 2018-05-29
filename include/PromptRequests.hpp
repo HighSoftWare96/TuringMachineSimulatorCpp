@@ -3,11 +3,11 @@
  * @author Bertoncelli Giovanni
  * @version v1.0.1
  * @date May, 2018
- * @file PromptRequests.h
+ * @file PromptRequests.hpp
  */
 #pragma once
-#include "TuringMachine.h"
-#include "TuringMachineState.h"
+#include "TuringMachine.hpp"
+#include "TuringMachineState.hpp"
 
 /// Namespace che contiene tutte le definizioni statiche del progetto.
 namespace promptReq {

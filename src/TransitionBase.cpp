@@ -7,25 +7,23 @@
  * @file TransitionBase.cpp
  */
 
-#include "../include/TransitionBase.h"
-#include "../include/State.h"
-#include "../lib/catch.hpp"
+#include "../include/TransitionBase.hpp"
+#include "../include/State.hpp"
+namespace mdtModels {
+TransitionBase::TransitionBase() {}
 
-mdtModels::TransitionBase::TransitionBase() {}
-
-mdtModels::TransitionBase::TransitionBase(int currentState,
-                                          char currentSymbol) {
+TransitionBase::TransitionBase(int currentState, char currentSymbol) {
   this->state = State<int>(currentState);
   this->symbol = currentSymbol;
 }
 
-mdtModels::TransitionBase::~TransitionBase() {}
+TransitionBase::~TransitionBase() {}
 
-const std::string mdtModels::TransitionBase::getMovementRappr() { return ""; }
+const std::string TransitionBase::getMovementRappr() { return ""; }
 
-bool mdtModels::operator<(const TransitionBase &one,
-                          const TransitionBase &that) {
+bool operator<(const TransitionBase &one, const TransitionBase &that) {
   return (one.state.getState() == that.state.getState())
              ? one.symbol < that.symbol
              : one.state.getState() < that.state.getState();
 }
+} // namespace mdtModels

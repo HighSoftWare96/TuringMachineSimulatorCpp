@@ -1,12 +1,14 @@
-#include "../include/PromptRequests.h"
-#include "../include/GpUtils.h"
-#include "../include/TuringMachine.h"
-#include "../include/TuringMachineState.h"
+#include "../include/PromptRequests.hpp"
+#include "../include/GpUtils.hpp"
+#include "../include/TuringMachine.hpp"
+#include "../include/TuringMachineState.hpp"
 #include <iostream>
 #include <string>
 
-void promptReq::PromptRequests::machineMenu(
-    mdtModels::TuringMachine &machine, mdtModels::TuringMachineState &tape) {
+namespace promptReq {
+
+void PromptRequests::machineMenu(mdtModels::TuringMachine &machine,
+                                 mdtModels::TuringMachineState &tape) {
   // RAW input dell'utente.
   std::string input = "";
   // Input intero convertito dell'utente.
@@ -193,7 +195,7 @@ void promptReq::PromptRequests::machineMenu(
   std::cout << "NASTRO: " << tape.printTape() << std::endl;
 }
 
-void promptReq::PromptRequests::writeTape(mdtModels::TuringMachineState &tape) {
+void PromptRequests::writeTape(mdtModels::TuringMachineState &tape) {
 
   // Svuoto il nastro (anche se non dovrebbe servire).
   tape.flush();
@@ -222,3 +224,4 @@ void promptReq::PromptRequests::writeTape(mdtModels::TuringMachineState &tape) {
 
   } while (input != "-1" || tape.getTapeSize() == 0);
 }
+} // namespace promptReq

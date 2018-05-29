@@ -14,10 +14,10 @@
  *
  */
 
-#include "../include/GpUtils.h"
-#include "../include/PromptRequests.h"
-#include "../include/TuringMachine.h"
-#include "../include/TuringMachineState.h"
+#include "../include/GpUtils.hpp"
+#include "../include/PromptRequests.hpp"
+#include "../include/TuringMachine.hpp"
+#include "../include/TuringMachineState.hpp"
 #include <iostream>
 #include <string>
 

@@ -1,23 +1,21 @@
-#include "../include/State.h"
+#include "../include/State.hpp"
+namespace mdtModels {
+template <typename T> State<T>::State() {}
 
-template <typename T> mdtModels::State<T>::State() {}
+template <typename T> State<T>::State(T value) { state = value; }
 
-template <typename T> mdtModels::State<T>::State(T value) { state = value; }
+template <typename T> State<T>::~State() {}
 
-template <typename T> mdtModels::State<T>::~State() {}
-
-template <typename T> const T mdtModels::State<T>::getState() const {
-  return this->state;
-}
+template <typename T> const T State<T>::getState() const { return this->state; }
 
 template <typename T>
-bool mdtModels::operator==(const State<T> &one, const State<T> &that) {
+bool operator==(const State<T> &one, const State<T> &that) {
   return (one.getState() == that.getState());
 }
 
-template mdtModels::State<int>::State();
-template mdtModels::State<int>::State(int value);
-template mdtModels::State<int>::~State();
-template const int mdtModels::State<int>::getState() const;
-template bool mdtModels::operator==(const State<int> &one,
-                                    const State<int> &that);
+template State<int>::State();
+template State<int>::State(int value);
+template State<int>::~State();
+template const int State<int>::getState() const;
+template bool operator==(const State<int> &one, const State<int> &that);
+} // namespace mdtModels

@@ -7,24 +7,24 @@
  * @file TuringMachineState.cpp
  */
 
-#include "../include/TuringMachineState.h"
-#include "../include/GpUtils.h"
-#include "../include/TransitionBase.h"
-#include "../include/TransitionValue.h"
-#include "../include/TuringMachine.h"
+#include "../include/TuringMachineState.hpp"
+#include "../include/GpUtils.hpp"
+#include "../include/TransitionBase.hpp"
+#include "../include/TransitionValue.hpp"
+#include "../include/TuringMachine.hpp"
 #include <iostream>
 #include <map>
 #include <string>
 
-mdtModels::TuringMachineState::TuringMachineState(
-    mdtModels::TuringMachine *machine) {
+namespace mdtModels {
+TuringMachineState::TuringMachineState(mdtModels::TuringMachine *machine) {
   _machine = machine;
   _machineTape = std::map<int, char>();
 }
 
-mdtModels::TuringMachineState::~TuringMachineState() {}
+TuringMachineState::~TuringMachineState() {}
 
-std::string mdtModels::TuringMachineState::printTape() {
+std::string TuringMachineState::printTape() {
   std::string result = "";
   for (const std::pair<int, char> &item : _machineTape) {
     result += item.second;
@@ -34,7 +34,7 @@ std::string mdtModels::TuringMachineState::printTape() {
 }
 
 // CORE: Esecuzione della MdT.
-void mdtModels::TuringMachineState::execute() {
+void TuringMachineState::execute() {
   std::cout << "## Esecuzione della Mdt creata ##\n"
             << "/La MdT viene eseguita partendo da SX verso DX (quindi dalla "
                "posizione 0)/"
@@ -114,24 +114,23 @@ void mdtModels::TuringMachineState::execute() {
             << "finale";
 }
 
-void mdtModels::TuringMachineState::addSymbol(int position, char symbol) {
+void TuringMachineState::addSymbol(int position, char symbol) {
   // Inserisco il simbolo nella mappa con quella posizione e quel char.
   _machineTape.insert(std::pair<int, char>(position, symbol));
 }
 
-void mdtModels::TuringMachineState::flush() {
+void TuringMachineState::flush() {
   // Ripulisco la map del tape.
   _machineTape.clear();
 }
 
-size_t mdtModels::TuringMachineState::getTapeSize() {
+size_t TuringMachineState::getTapeSize() {
   // Ritorno la grandezza del nastro.
   return _machineTape.size();
 }
 
 mdtModels::TransitionValue const *
-mdtModels::TuringMachineState::getTransition(State<int> currentState,
-                                             char currentSymbol) {
+TuringMachineState::getTransition(State<int> currentState, char currentSymbol) {
   // Puntatore alle transizioni della MdT.
   auto transitions = _machine->getTransitions();
   // itero per tutta la mappa tramite il puntatore/iterator alla mappa
@@ -147,3 +146,4 @@ mdtModels::TuringMachineState::getTransition(State<int> currentState,
   }
   return nullptr;
 }
+} // namespace mdtModels

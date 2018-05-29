@@ -4,21 +4,21 @@
  * @author Bertoncelli Giovanni
  * @version v1.0.1
  * @date May, 2018
- * @file Tests.h
+ * @file Tests.hpp
  */
 #define CATCH_CONFIG_MAIN
-#include "../include/GpUtils.h"
-#include "../include/TransitionBase.h"
-#include "../include/TransitionValue.h"
-#include "../include/TuringMachine.h"
-#include "../include/TuringMachineState.h"
+#include "../include/GpUtils.hpp"
+#include "../include/TransitionBase.hpp"
+#include "../include/TransitionValue.hpp"
+#include "../include/TuringMachine.hpp"
+#include "../include/TuringMachineState.hpp"
 #include "../lib/catch.hpp"
 #include "../src/GpUtils.cpp"
 #include "../src/TuringMachineState.cpp"
 #include "../src/TransitionBase.cpp"
 #include "../src/TransitionValue.cpp"
 #include "../src/TuringMachine.cpp"
-#include "../include/State.h"
+#include "../include/State.hpp"
 #include "../src/State.cpp"
 
 #include <iostream>
